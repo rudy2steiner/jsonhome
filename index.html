@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <!-- when using the mode "code", it's important to specify charset utf-8 -->
+    <title>JSON Online Validator and Formatter - JSON Home</title>
     <meta charset="utf-8">
+    <meta name="description" content="JSONHome is the free online validator, json formatter, and json beautifier tool for JSON, a lightweight data-interchange format. You can format json, validate json, with a quick and easy copy+paste."/>
     <link href="dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
     <script src="dist/jsoneditor.min.js"></script>
     <script>
@@ -28,16 +30,36 @@
 </head>
 <body>
 <div class="editor" style="display:inline-block" id="left"></div>
+<footer class="w-full bg-white py-12 pb-20 px-4 lg:px-10 dark:bg-slate-800" aria-labelledby="footer-heading">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="mt-20 pt-10 border-t border-slate-100 text-base font-semibold mb-6 font-[&#x27;MonoLisa&#x27;] tracking-tight dark:text-slate-300 dark:border-slate-700">Our Friends and Favorites</h2>
+        <ul class="tools grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+            <li>
+                <a href="https://json.org" rel="noopener">JSON's Syntax</a>
+                <span class="block">JSON (JavaScript Object Notation) is a lightweight data-interchange format</span>
+            </li>
+            <li>
+                <a href="https://jsoncompare.com/" rel="noopener">JSONCompare</a>
+                <span>JSON compare tool</span>
+            </li>
+        </ul>
+    </div>
+    <div class="max-w-7xl mx-auto mt-20 pt-6 border-t border-slate-200 dark:border-slate-700">
+        <div class="text-sm">
+            © 2023 JSONHome.com.
+        </div>
+    </div>
+</footer>
 <script>
 
         // create the editor
         const container = document.getElementById("left")
         const options = {
-        mode: 'code',
-        modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
-        onChangeText: function (jsonString) {
-            console.log('onChangeText', jsonString);
-         }
+            mode: 'code',
+            modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
+            onChangeText: function (jsonString) {
+                console.log('onChangeText', jsonString);
+             }
         }
 
         const editor = new JSONEditor(container, options)
@@ -48,7 +70,7 @@
             "Null": null,
             "Number": 123,
             "Object": {"a": "b", "c": "d"},
-            "String": "Hello World"
+            "String": "Json Hello World"
         }
         editor.set(initialJson)
         // get json
