@@ -24,8 +24,8 @@
 					var modifiedTxt = r[1].responseText;
 
 					diffEditor.setModel({
-						original: monaco.editor.createModel(originalTxt, 'javascript'),
-						modified: monaco.editor.createModel(modifiedTxt, 'javascript')
+						original: monaco.editor.createModel(originalTxt, 'json'),
+						modified: monaco.editor.createModel(modifiedTxt, 'json')
 					});
 				});
 			});
