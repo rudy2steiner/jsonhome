@@ -78,12 +78,10 @@
         }
 
        function pretty() {
-          console.log("start format")
           this.editor.trigger('anyString', 'editor.action.formatDocument')
        }
 
        function minify() {
-          console.log("start to zip")
           if (this.editor.getValue() == undefined || this.editor.getValue().length==0) {
              console.log("empty")
              return
