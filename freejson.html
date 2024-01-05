@@ -12,18 +12,20 @@
             border: 1px solid #ccc;
         }
     </style>
+    <script src='https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs/loader.min.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
 <body>
-<div id="head">
-    <button onclick="format()">format</button>
-    <button onclick="zip()">zip</button>
+<div id="head" style="margin-top:10px;margin-bottom:10px;margin-left:10px">
+    <button class="btn btn-outline btn-sm btn-primary"onclick="pretty()">pretty</button>
+    <button class="btn btn-outline btn-sm " onclick="minify()">minify</button>
 </div>
 <div id="editor" ></div>
-<script src='https://cdn.jsdelivr.net/npm/monaco-editor@0.22.3/min/vs/loader.js'></script>
 <script>
         require.config({
             paths: {
-                vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.22.3/min/vs'
+                vs: 'https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs'
             },
             'vs/nls': { availableLanguages: { '*': 'zh-cn' } }
         });
@@ -75,12 +77,12 @@
             }
         }
 
-       function format() {
+       function pretty() {
           console.log("start format")
           this.editor.trigger('anyString', 'editor.action.formatDocument')
        }
 
-       function zip() {
+       function minify() {
           console.log("start to zip")
           if (this.editor.getValue() == undefined || this.editor.getValue().length==0) {
              console.log("empty")
