@@ -3,18 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link href="./css/tailwind.css" rel="stylesheet">
-<!--    <script src='https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs/loader.min.js'></script>-->
-    <link
-            rel="stylesheet"
-            data-name="vs/editor/editor.main"
-            href="./monaco-editor-core/min/vs/editor/editor.main.css"
-    />
-    <script src="./monaco-editor-core/min/vs/loader.js"></script>
-    <script src="./monaco-editor-core/min/vs/editor/editor.main.nls.js"></script>
-    <script src="./monaco-editor-core/min/vs/editor/editor.main.js"></script>
-    <script src="./monaco-editor-core/min/vs/base/worker/workerMain.js"></script>
-    <script src="./monaco-editor-core/min/vs/base/common/worker/simpleWorker.nls.js"></script>
-
+    <script src='https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs/loader.min.js'></script>
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -39,18 +28,9 @@
 <script>
 			require.config({
             paths: {
-                vs: './monaco-editor-core/min/vs'
+                vs: 'https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs'
             }
             });
-<!--        require.config({ paths: { 'vs': 'https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs' }});-->
-<!--        window.MonacoEnvironment = { getWorkerUrl: () => proxy };-->
-
-<!--        let proxy = URL.createObjectURL(new Blob([`-->
-<!--            self.MonacoEnvironment = {-->
-<!--                baseUrl: 'https://cdn.staticfile.org/monaco-editor/0.22.3/min/'-->
-<!--            };-->
-<!--            importScripts('https://cdn.staticfile.org/monaco-editor/0.22.3/min/vs/base/worker/workerMain.js');-->
-<!--        `], { type: 'text/javascript' }));-->
 
 			require(['vs/editor/editor.main'], function () {
 				var diffEditor = monaco.editor.createDiffEditor(document.getElementById('container'),{
