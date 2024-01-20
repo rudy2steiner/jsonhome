@@ -1,0 +1,50 @@
+{
+  "_args": [
+    [
+      "monaco-editor-core@0.45.0-rc",
+      "/Users/rudy/workspace/monaco-editor"
+    ]
+  ],
+  "_development": true,
+  "_from": "monaco-editor-core@0.45.0-rc",
+  "_id": "monaco-editor-core@0.45.0-rc",
+  "_inBundle": false,
+  "_integrity": "sha512-iNh84qarOK8KhJNaxitm+07m9sCCoF4OxQXDOru1pOSPNFGpMEOV/35agYm9ab9RAm2CPGGHz27eJUY1FY0iKg==",
+  "_location": "/monaco-editor-core",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "monaco-editor-core@0.45.0-rc",
+    "name": "monaco-editor-core",
+    "escapedName": "monaco-editor-core",
+    "rawSpec": "0.45.0-rc",
+    "saveSpec": null,
+    "fetchSpec": "0.45.0-rc"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/monaco-editor-core/-/monaco-editor-core-0.45.0-rc.tgz",
+  "_spec": "0.45.0-rc",
+  "_where": "/Users/rudy/workspace/monaco-editor",
+  "author": {
+    "name": "Microsoft Corporation"
+  },
+  "bugs": {
+    "url": "https://github.com/microsoft/vscode/issues"
+  },
+  "description": "A browser based code editor",
+  "homepage": "https://github.com/microsoft/vscode#readme",
+  "license": "MIT",
+  "module": "./esm/vs/editor/editor.main.js",
+  "name": "monaco-editor-core",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/vscode.git"
+  },
+  "typings": "./esm/vs/editor/editor.api.d.ts",
+  "version": "0.45.0-rc",
+  "vscodeCommitId": "af28b32d7e553898b2a91af498b1fb666fdebe0c"
+}
