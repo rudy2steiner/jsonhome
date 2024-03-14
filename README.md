@@ -3,5 +3,5 @@
  
 ## Tailwindcss production
 ```
-tailwindcss -i ./css/tw.css -o ./css/tailwind.css --watch
+x/installment/tailwindcss -i ./css/tw.css -o ./css/tailwind.css --watch
 ```
