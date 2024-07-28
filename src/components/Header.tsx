@@ -18,6 +18,7 @@ const navigation = {
     {name: 'Playground', href: '/playground'},
     {name: 'Works', href: '/works'},
     {name: 'Videos', href: '/videos'},
+    {name: 'JSON', href: '/json'},
   ],
   social: [
     {

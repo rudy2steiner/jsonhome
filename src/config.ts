@@ -5,11 +5,13 @@ export const locales = ['en', 'zh', 'ko', 'ja'] as const;
 export const languages = [
   {
     code: "en-US",
+    code1: "en",
     lang: "en",
     language: "English",
   },
   {
     code: "zh-CN",
+    code1: "zh-CN",
     lang: "zh",
     language: "简体中文",
   },

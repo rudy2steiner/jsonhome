@@ -33,6 +33,8 @@ export default async function LocaleLayout({
     <html className="h-full" lang={locale}>
     <head>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-66T44ZVWSB"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/10.1.0/jsoneditor.min.js" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/10.1.0/jsoneditor.min.css" rel="stylesheet" type="text/css"/>
       <script
         dangerouslySetInnerHTML={{
           __html: `
