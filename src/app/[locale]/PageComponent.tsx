@@ -104,78 +104,15 @@ const PageComponent = ({
             <div
               className="mx-auto flex max-w-4xl flex-col items-center text-center py-10">
               <h1 className="mb-4 text-4xl font-bold md:text-6xl">{indexLanguageText.h1Text}</h1>
-              <div className="mb-5 max-w-[528px] lg:mb-8">
+              <div className="mb-5  lg:mb-8">
                 <p className="text-[#7c8aaa] text-xl">{indexLanguageText.pDescription}</p>
               </div>
-              <a
-                href="https://www.producthunt.com/posts/sorawebui?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-sorawebui"
-                target="_blank"><img
-                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=440945&theme=light"
-                alt="SoraWebui - Open&#0045;source&#0032;Sora&#0032;Web&#0032;Client | Product Hunt"
-              /></a>
+               <Link href={`/${locale}/json-editor`}
+                  className={"flex justify-center items-center text-xl text-blue-400 hover:text-blue-600"}>
+               Get Started {'>>'}
+              </Link>
             </div>
-            <div>
-              <div
-                className={"w-[90%] mx-auto rounded-tl-[30px] rounded-tr-[30px] border-[12px] border-[#ffffff1f] object-fill"}>
-                <form onSubmit={handleSubmit} className="relative shadow-lg">
-                  <div
-                    className="overflow-hidden focus-within:ring-1 focus-within:ring-indigo-500 rounded-tl-[20px] rounded-tr-[20px]">
-                    <textarea
-                      rows={8}
-                      name="description"
-                      id="description"
-                      className="block w-full resize-none border-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-lg pt-4 pl-4"
-                      placeholder={indexLanguageText.placeholderText}
-                      value={textStr}
-                      onChange={(e) => {
-                        setTextStr(e.target.value);
-                      }}
-                      maxLength={1000}
-                    />
-                  </div>
-                  <div className="flex justify-center items-center space-x-3 px-2 py-2 bg-white text-black">
-                    <span
-                      className={`cursor-pointer p-2 rounded-lg mx-0.5 flex items-center mt-1 border ${chooseAPI == 'FakeSora' ? 'border-[#ffa11b]' : 'border-gray-200'}`}
-                      onClick={() => setChooseAPI('FakeSora')}
-                    >
-                      <span>FakeSora</span>
-                    </span>
-                    <span
-                      className={`cursor-pointer p-2 rounded-lg mx-0.5 flex items-center mt-1 border ${chooseAPI == 'Sora' ? 'border-[#ffa11b]' : 'border-gray-200'}`}
-                      onClick={() => setChooseAPI('Sora')}
-                    >
-                      <span>Sora</span>
-                    </span>
-                  </div>
-                  {
-                    chooseAPI == 'FakeSora' ?
-                      <div className="flex justify-center items-center space-x-3 px-2 bg-white text-red-400">
-                        {indexLanguageText.fakeSoraTip}
-                      </div>
-                      :
-                      chooseAPI == 'Sora' ?
-                        <div className="flex justify-center items-center space-x-3 px-2 bg-white text-red-400">
-                          {indexLanguageText.soraTip}
-                        </div>
-                        :
-                        null
-                  }
-                  <div className="inset-x-px bottom-1 bg-white">
-                    <div
-                      className="flex justify-center items-center space-x-3 border-t border-gray-200 px-2 py-2">
-                      <div className="pt-2 w-1/4">
-                        <button
-                          type="submit"
-                          className="w-full inline-flex justify-center items-center rounded-md bg-[#2d6ae0] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800"
-                        >
-                          {indexLanguageText.buttonText}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+
 
             <div className={"border-[14px] border-[#ffffff1f] object-fill w-[90%] mx-auto mt-8"}>
               <div className={"mx-auto bg-white"}>

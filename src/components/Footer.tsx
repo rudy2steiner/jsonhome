@@ -3,7 +3,8 @@ import Link from "next/link";
 
 const navigation = {
   product: [
-    {name: 'SoraWebui', href: 'https://sorawebui.com'}
+    {name: 'JSON Home', href: 'https://jsonhome.com'},
+    {name: 'Photo Maker', href: 'https://photomaker.co'}
   ],
   legal: [
     {name: 'Privacy Policy', href: '/privacy-policy'},
@@ -16,10 +17,10 @@ export default function Footer({
                                  description = ''
                                }) {
   return (
-    <footer className="bg-[#020d24]" aria-labelledby="footer-heading">
+    <footer className="bg-[#44403C]" aria-labelledby="footer-heading">
       <div id="footer-heading" className="sr-only">
         Footer
-      </div>
+      </div>ƒ
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
@@ -32,7 +33,7 @@ export default function Footer({
                 alt="Sorawebui.com"
               />
             </a>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-white">
               {description}
             </p>
           </div>
@@ -41,7 +42,6 @@ export default function Footer({
               <div>
                 <div className="text-sm font-semibold leading-6 text-white"></div>
                 <ul role="list" className="mt-6 space-y-4">
-
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
