@@ -19,7 +19,9 @@
     "react-dom": "^18",
     "undici": "^6.6.2",
     "uuid": "^9.0.1",
-    "@monaco-editor/react":"^4.6.0"
+    "@monaco-editor/react":"^4.6.0",
+    "jsoneditor": "^10.1.0",
+    "vanilla-jsoneditor": "0.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
