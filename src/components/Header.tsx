@@ -15,10 +15,9 @@ import GeneratingModal from "~/components/GeneratingModal";
 
 const navigation = {
   topMenu: [
-    {name: 'JSON Editor', href: '/json-editor'},
-    {name: 'Playground', href: '/playground'},
-    {name: 'Works', href: '/works'},
-    {name: 'Videos', href: '/videos'}
+    {name: 'JSON(non-standard) Format', href: '/json-editor'},
+    {name: 'JSON Compare', href: '/playground'},
+    {name: 'FAQ', href: '/videos'}
   ],
   social: [
     {

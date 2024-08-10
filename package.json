@@ -18,7 +18,9 @@
     "react": "^18",
     "react-dom": "^18",
     "undici": "^6.6.2",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "@monaco-editor/react":"^4.6.0",
+    "@monaco-editor/loader":"^4.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
