@@ -69,7 +69,11 @@ npm run dev
 #or
 pnpm dev
 ```
+### timestam
+```agsl
+https://github.com/mCodex/react-timestamper
 
+```
 ### 5. Open [http://localhost](http://localhost) with your browser to see it.
 ![success_deploy.jpg](https://sorawebui.com/success_deploy.jpg)
 

@@ -45,6 +45,8 @@ const PageComponent = ({
         <DiffEditor
           height="60vh"
           language="json"
+          original="hi"
+          modified="hello"
           options={options}
           onMount={handleEditorDidMount}
         />
