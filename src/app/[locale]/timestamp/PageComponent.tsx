@@ -19,9 +19,15 @@ import { FiRepeat } from 'react-icons/fi';
 import styled from 'styled-components';
 import { Toaster } from 'react-hot-toast';
 import Image from 'next/image'
-import CustomInput from '~/components/Input';
+import Input from '~/components/Input';
 import Button from '~/components/Button';
-
+import {DatePicker} from "@nextui-org/react";
+import moment,{ Moment }  from 'moment';
+import Picker from 'rc-picker';
+import momentGenerateConfig from "rc-picker/lib/generate/moment";
+import React from 'react';
+import zhCN from 'rc-picker/lib/locale/zh_CN';
+import "rc-picker/assets/index.css";
 import { Container } from './styles';
 interface FormValues {
   timestamp: string;
@@ -46,14 +52,31 @@ const PageComponent = ({
       }),
       [],
     );
- const gotATime = dateTime => {
+  const gotATime = dateTime => {
     setDateTime(dateTime);
   }
-
+  const now = moment().format("yyyy-MM-DD hh:mm:ss");
     const handleFormOnSubmit = (values: FormValues): void => {
       const parsedDate = fromUnixTime(+values.timestamp);
 
-      setDate(format(parsedDate, 'MM/dd/yyyy hh:mm:ss a'));
+      setDate(format(parsedDate, 'yyyy-MM-dd HH:mm:ss'));
+    };
+   const defaultValue = moment();
+   const [value, setValue] = React.useState<Moment | null>(defaultValue);
+   const onSelect = (newValue: Moment) => {
+      console.log('Select:', newValue);
+    };
+    const onChange = (newValue: Moment | null, formatString?: string) => {
+      console.log('Change:', newValue, formatString);
+      console.log('Change timestamp:', newValue.toDate().getTime(), formatString);
+      setValue(newValue);
+      setDateTime(newValue.toDate());
+    };
+  const sharedProps = {
+      generateConfig: momentGenerateConfig,
+      value,
+      onSelect,
+      onChange,
     };
   return (
     <>
@@ -64,7 +87,9 @@ const PageComponent = ({
         page={"/json-editor"}
       />
     <Header locale={locale} page={"json-editor"} indexLanguageText={indexLanguageText}/>
+
     <p className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.soraVideoExample}</p>
+
      <Container>
           <header>
             <FiRepeat size={40} color="#fff" />
@@ -82,7 +107,7 @@ const PageComponent = ({
               values,
             }: FormikProps<FormValues>) => (
               <Form onSubmit={handleSubmit}>
-                <CustomInput
+                <Input
                   icon={FaClock}
                   name="timestamp"
                   data-testid="timestampInput"
@@ -91,6 +116,7 @@ const PageComponent = ({
                   onBlur={handleBlur}
                   value={values.timestamp}
                 />
+
                 <Button data-testid="submitButton" type="submit">
                   Convert
                 </Button>
@@ -105,7 +131,7 @@ const PageComponent = ({
               </Form>
             )}
           </Formik>
-    </Container>
+     </Container>
     <ScWrapper>
             <div>
               <Toaster
@@ -117,11 +143,30 @@ const PageComponent = ({
             <ScInner>
 
               <ScMain>
-                <ScTitle>Timestamps Generator</ScTitle>
-                <ScDescription>This little app helps you generate and format timestamps for Discord and other services that support timestamp format.</ScDescription>
-                <ScSelectWrapper>
-                  <ScAction>Pick date</ScAction>
-                <Datepicker newTime={gotATime} />
+                <ScTitle>Timestamp Generator</ScTitle>
+                <ScDescription >This little app helps you generate and format timestamps for Discord and other services that support timestamp format.</ScDescription>
+                <ScSelectWrapper >
+                  <ScAction >Pick date</ScAction>
+                  <Picker<Moment>
+                    {...sharedProps}
+                    locale={zhCN}
+                    defaultPickerValue={defaultValue.clone().subtract(1, 'month')}
+                    showTime={{
+                      showHour:true,
+                      showMinute:true,
+                      showSecond: true,
+                      defaultValue: moment('11:28:39', 'HH:mm:ss'),
+                    }}
+                    showToday
+                    disabledTime={date => {
+                      if (date && date.isSame(defaultValue, 'date')) {
+                        return {
+                          disabledHours: () => [1, 3, 5, 7, 9, 11],
+                        };
+                      }
+                      return {};
+                    }}
+                  />
                 </ScSelectWrapper>
                 <Results dateTime={dateTime} />
 
@@ -211,7 +256,7 @@ const ScSelectWrapper = styled.div`
   gap: 16px;
   justify-content: center;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 24px;
   margin-bottom: 24px;
 `;
 

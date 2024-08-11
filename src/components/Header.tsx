@@ -17,7 +17,7 @@ const navigation = {
   topMenu: [
     {name: 'JSON(non-standard) Format', href: '/json-editor'},
     {name: 'JSON Compare', href: '/playground'},
-    {name: 'Timestamp', href: '/videos'}
+    {name: 'Timestamp', href: '/timestamp'}
   ],
   social: [
     {
