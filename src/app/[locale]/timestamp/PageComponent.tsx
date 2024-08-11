@@ -112,7 +112,7 @@ const PageComponent = ({
             <FiRepeat size={40} color="#F97316" />
             <div>
               <h1>Timestamp Converter</h1>
-              <h3>Convert timestamp into date</h3>
+              <h2>Convert timestamp to date and vice versa.</h2>
             </div>
           </header>
           <Formik initialValues={initialValues} onSubmit={handleFormOnSubmit}>
