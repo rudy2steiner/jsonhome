@@ -111,8 +111,8 @@ const PageComponent = ({
           <header className="mt-10">
             <FiRepeat size={40} color="#F97316" />
             <div>
-              <h1>Timestamper</h1>
-              <h3>Converts timestamp into date</h3>
+              <h1>Timestamp Converter</h1>
+              <h3>Convert timestamp into date</h3>
             </div>
           </header>
           <Formik initialValues={initialValues} onSubmit={handleFormOnSubmit}>
@@ -178,7 +178,7 @@ const PageComponent = ({
                   <Picker<Moment>
                     {...sharedProps}
                     locale={zhCN}
-                    defaultPickerValue={defaultValue.clone().subtract(1, 'month')}
+                    defaultPickerValue={defaultValue.clone()}
                     showTime={{
                       showHour:true,
                       showMinute:true,
@@ -194,14 +194,7 @@ const PageComponent = ({
                       return {};
                     }}
                   className="border-2 border-orange-300" />
-                  <select
-                       name="Timezone"
-                       id="HeadlineAct"
-                       className=" ml-5 border-2 border-orange-300 text-gray-700 sm:text-sm"
-                     >
-                       <option value="shanghai">Asia/Shanghai</option>
-                       <option value="taipei">Asia/Taipei</option>
-                  </select>
+
                   </div>
                 </ScSelectWrapper>
                 <Results dateTime={dateTime} />
