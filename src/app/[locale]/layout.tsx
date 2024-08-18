@@ -49,6 +49,7 @@ export default async function LocaleLayout({
     <CommonProvider>
       {children}
     </CommonProvider>
+    <Analytics />
     </body>
     </html>
   );

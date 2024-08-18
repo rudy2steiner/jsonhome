@@ -9,7 +9,7 @@ export const getIndexLanguageText = async () => {
     generateText: tIndex('generateText'),
     buttonText: tIndex('buttonText'),
     placeholderText: tIndex('placeholderText'),
-    h1Text: tIndex('h1Text'),
+    h1: tIndex('h1'),
     pDescription: tIndex('pDescription'),
     soraVideoExample: tIndex('soraVideoExample'),
     prompt: tIndex('prompt'),

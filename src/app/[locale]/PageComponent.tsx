@@ -49,7 +49,7 @@ const PageComponent = ({
         page={""}
     />
     <Header locale={locale} indexLanguageText={indexLanguageText}/>
-    <h1 className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.description}</h1>
+    <h1 className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.h1}</h1>
     <JSONEditorReact  onChange={handler} onRenderMenu={menu} />
     <section>
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-5 py-16 md:px-10 md:py-24 lg:py-32">

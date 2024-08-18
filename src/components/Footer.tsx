@@ -20,14 +20,14 @@ export default function Footer({
     <footer className="bg-[#44403C] footer flex flex-col" aria-labelledby="footer-heading">
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
+          <div className="space-y-1">
             <a href={`/${locale}`}>
               <Image
                 className="h-10"
                 src="/appicon.svg"
                 width={32}
                 height={32}
-                alt="Sorawebui.com"
+                alt="jsonhome.com"
               />
             </a>
             <p className="text-sm text-white">
