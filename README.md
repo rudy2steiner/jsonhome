@@ -1,4 +1,4 @@
-# SoraWebui
+# JSON Home
 SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.
 👉 [SoraWebui](https://sorawebui.com)
 
