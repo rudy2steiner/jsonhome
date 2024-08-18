@@ -7,8 +7,8 @@ const navigation = {
     {name: 'Photo Maker', href: 'https://photomaker.co'}
   ],
   legal: [
-    {name: 'Privacy Policy', href: '/privacy-policy'},
-    {name: 'Terms & Conditions', href: '/terms-of-service'},
+    {name: 'Privacy Policy', href: '/'},
+    {name: 'Terms & Conditions', href: '/'},
   ]
 }
 
