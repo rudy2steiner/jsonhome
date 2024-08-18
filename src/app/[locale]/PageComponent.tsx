@@ -42,19 +42,56 @@ const PageComponent = ({
   }
   return (
     <>
-      <HeadInfo
+    <HeadInfo
         title={indexLanguageText.title}
         description={indexLanguageText.description}
         locale={locale}
         page={""}
-      />
-      <Header locale={locale} indexLanguageText={indexLanguageText}/>
-      <p className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.pDescription}</p>
-      <JSONEditorReact onChange={handler} onRenderMenu={menu} />
-      <Footer
+    />
+    <Header locale={locale} indexLanguageText={indexLanguageText}/>
+    <h1 className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.description}</h1>
+    <JSONEditorReact  onChange={handler} onRenderMenu={menu} />
+    <section>
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-5 py-16 md:px-10 md:py-24 lg:py-32">
+            <h2 className="mx-auto text-center font-bold text-black text-3xl lg:text-5xl"> {questionText.h2_0} </h2>
+            <div className="mt-10 flex w-full max-w-[900px] flex-col space-y-4">
+                <div className="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" />
+                    <div className="collapse-title text-xl font-medium">
+                        <h2 className="font-bold text-black text-xl">{questionText.h2_1}</h2>
+                    </div>
+                    <div className="collapse-content">
+                        <p className="font-inter text-base font-light text-gray-500">
+                           {questionText.h2_1_p1}
+                        </p>
+                    </div>
+                </div>
+                <div className="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" defaultChecked />
+                    <div className="collapse-title text-xl font-medium">
+                        <h2 className="font-bold text-black text-xl">{questionText.h2_2}</h2>
+                    </div>
+                    <div className="collapse-content">
+                        <p className="font-inter text-base font-light text-gray-500">
+                            {questionText.h2_2_p1}
+                        </p>
+                        <p className="font-inter mt-4 text-base font-light text-gray-500">{questionText.h2_2_p2}</p>
+                        <ul className="list-inside list-disc">
+                            <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3a}</li>
+                            <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3b}</li>
+                            <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3c}</li>
+                            <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3d}</li>
+                            <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3e}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer
         locale={locale}
         description={indexLanguageText.description}
-      />
+    />
     </>
   )
 }

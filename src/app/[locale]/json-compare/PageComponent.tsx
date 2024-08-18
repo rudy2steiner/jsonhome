@@ -14,7 +14,7 @@ import {Editor,loader,useMonaco,DiffEditor} from "@monaco-editor/react";
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
-                         playgroundText
+                         jsonCompareText
                        }) => {
   const lang = getEditorLocale(locale);
   const diffEditorRef = useRef(null);
@@ -33,13 +33,13 @@ const PageComponent = ({
   return (
     <>
       <HeadInfo
-        title={indexLanguageText.title}
-        description={indexLanguageText.description}
+        title={jsonCompareText.title}
+        description={jsonCompareText.description}
         locale={locale}
-        page={"/playground"}
+        page={"/json-compare"}
       />
-    <Header locale={locale} page={"json-editor"} indexLanguageText={indexLanguageText}/>
-    <p className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.prompt}</p>
+    <Header locale={locale} page={"json-compare"} indexLanguageText={indexLanguageText}/>
+    <p className="text-black text-center text-xl mb-3 mt-5">{jsonCompareText.h1}</p>
     <div className="mx-auto w-[80%]  h-[100%] border-blue-200 border-2 mb-2 ">
       <div className="">
         <DiffEditor
@@ -51,14 +51,15 @@ const PageComponent = ({
           onMount={handleEditorDidMount}
         />
       </div>
-      <div className="flex justify-between pt-2">
+      <div className="flex justify-between pt-2 pb-2">
         <div className="flex-shrink-0">
-          <button  onClick={format} className="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-1 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 ml-2 mb-2">
-            format
+          <button  onClick={format} className="btn btn-outline btn-sm btn-primary ml-5">
+            {jsonCompareText.format}
           </button>
         </div>
       </div>
     </div>
+
     <Footer
         locale={locale}
         description={indexLanguageText.description}

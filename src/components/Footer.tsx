@@ -17,10 +17,7 @@ export default function Footer({
                                  description = ''
                                }) {
   return (
-    <footer className="bg-[#44403C]" aria-labelledby="footer-heading">
-      <div id="footer-heading" className="sr-only">
-        Footer
-      </div>ƒ
+    <footer className="bg-[#44403C] footer flex flex-col" aria-labelledby="footer-heading">
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
@@ -93,6 +90,8 @@ export default function Footer({
           </div>
         </div>
       </div>
+
     </footer>
+
   )
 }

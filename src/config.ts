@@ -12,16 +12,6 @@ export const languages = [
     code: "zh-CN",
     lang: "zh",
     language: "简体中文",
-  },
-  {
-    code: "ko-KR",
-    lang: "ko",
-    language: "한국어",
-  },
-  {
-    code: "ja-JP",
-    lang: "ja",
-    language: "日本語",
   }
 ]
 
@@ -44,7 +34,7 @@ export const getLanguageByLang = (lang) => {
 
 export const getEditorLocale = (lang) => {
   if (lang == 'zh') {
-    return 'zh-CN';
+    return 'zh-cn';
   }else if(lang==''){
     return 'en';
   }

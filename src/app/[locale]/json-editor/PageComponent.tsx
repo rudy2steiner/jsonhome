@@ -11,16 +11,19 @@ import Script from 'next/script'
 import { languages,getLanguageByLang,getEditorLocale} from "~/config";
 import {Editor,loader,useMonaco} from "@monaco-editor/react";
 
+
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
-                         playgroundText
+                         jsonEditorText
                        }) => {
   const editorRef = useRef(null);
+  const editorLocale = getEditorLocale(locale)
+  console.log('editor mount locale:'+{locale}+'->'+editorLocale);
   function handleEditorDidMount(editor, monaco) {
       editorRef.current = editor;
   }
-  function pretty(e) {
+  function format(e) {
     e.preventDefault()
     editorRef.current.trigger('', 'editor.action.formatDocument');
   }
@@ -40,14 +43,24 @@ const PageComponent = ({
   return (
     <>
       <HeadInfo
-        title={indexLanguageText.title}
-        description={indexLanguageText.description}
+        title={jsonEditorText.title}
+        description={jsonEditorText.description}
         locale={locale}
         page={"/json-editor"}
       />
     <Header locale={locale} page={"json-editor"} indexLanguageText={indexLanguageText}/>
-    <p className="text-black text-center text-xl mb-3 mt-5">{indexLanguageText.soraVideoExample}</p>
+    <p className="text-black text-center text-xl mb-3 mt-5">{jsonEditorText.h1}</p>
     <div className="mx-auto w-[80%] h-[100%] border-blue-200 border-2 mb-2">
+      <div className="flex justify-between pt-2 pb-2">
+          <div className="flex-shrink-0 ">
+            <button  onClick={format} className="btn btn-outline btn-sm btn-primary ml-5">
+              {jsonEditorText.format}
+            </button>
+            <button onClick={minify} className="btn btn-outline btn-sm  ml-2">
+              {jsonEditorText.compact}
+            </button>
+          </div>
+      </div>
       <div className="">
         <Editor
           height="calc(60vh)"
@@ -55,16 +68,6 @@ const PageComponent = ({
           defaultValue=''
           onMount={handleEditorDidMount}
         />
-      </div>
-      <div className="flex justify-between pt-2">
-        <div className="flex-shrink-0 ">
-          <button  onClick={pretty} className="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-1 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 ml-2 mb-2">
-            format
-          </button>
-          <button onClick={minify} className="inline-block rounded border border-indigo-600 px-5 py-1 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 ml-2 mb-2 ">
-           compact
-          </button>
-        </div>
       </div>
     </div>
 

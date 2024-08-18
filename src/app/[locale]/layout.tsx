@@ -33,8 +33,6 @@ export default async function LocaleLayout({
     <html className="h-full" lang={locale}>
     <head>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-66T44ZVWSB" ></script>
-      <script async src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/10.1.0/jsoneditor.min.js" />
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/10.1.0/jsoneditor.min.css" rel="stylesheet" type="text/css"/>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -46,7 +44,7 @@ export default async function LocaleLayout({
         }}
       />
     </head>
-    <body suppressHydrationWarning={true} className={clsx(inter.className, 'flex h-full flex-col bg-[#FAFAF9]')}>
+    <body suppressHydrationWarning={true} className={clsx(inter.className, 'flex h-100vh flex-col bg-[#FAFAF9]')}>
     <CommonProvider>
       {children}
     </CommonProvider>
