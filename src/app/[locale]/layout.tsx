@@ -5,6 +5,7 @@ import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {locales} from '~/config';
 import { CommonProvider } from '~/context/common-context';
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({subsets: ['latin']});
 

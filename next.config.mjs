@@ -16,7 +16,7 @@ const nextConfig = {
           },
           {
                source: '/index.html',
-               destination: '/en',
+               destination: '/en/',
           },
          ]
         }
