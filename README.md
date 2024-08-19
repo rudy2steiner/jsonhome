@@ -1,7 +1,7 @@
 
 # JSON Home
 JSON Home is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.
-👉 [SoraWebui](https://jsonhome.com)
+👉 [SoraWebui](https://jsonhome.com) 
 
 English | [简体中文](https://github.com/rudy2steiner/SoraWebui/blob/main/README.zh-CN.md) | [日本語](https://github.com/SoraWebui/SoraWebui/blob/main/README.ja-JP.md)
 
