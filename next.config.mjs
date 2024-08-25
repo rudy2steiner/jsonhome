@@ -18,6 +18,10 @@ const nextConfig = {
                source: '/index.html',
                destination: '/en/',
           },
+          {
+             source: '/timestamp.html',
+             destination: '/en/timestamp',
+          },
          ]
         }
 

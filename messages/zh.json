@@ -3,14 +3,14 @@
     "lang": "en",
     "language": "简体中文",
     "languageInChineseSimple": "简体中文",
-    "title": "在线编辑、格式化、验证和美化 JSON 工具",
-    "description": "在线编辑、格式化、验证和美化 JSON 工具。",
+    "title": "在线编辑、格式化、语法验证和美化JSON",
+    "description": "在线编辑、格式化、语法验证和美化JSON。",
     "loadingText": "加载中...",
     "generateText": "生成中...",
     "buttonText": "生成",
     "placeholderText": "在此处输入或粘贴文本...",
-    "h1": "在线编辑、格式化、验证和美化 JSON 工具，只需将其粘贴到下面即可：",
-    "pDescription": "在线编辑、格式化、验证和美化 JSON 工具，只需将其粘贴到下面即可：",
+    "h1": "在线编辑、格式化、语法验证和美化JSON，只需将其粘贴到下面即可：",
+    "pDescription": "在线编辑、格式化、语法验证和美化JSON，只需将其粘贴到下面即可：",
     "soraVideoExample": "Sora 生成的示例视频",
     "prompt": "提示词",
     "soraWorksTitle": "作品列表",
@@ -85,7 +85,15 @@
     "h2_1": "时间戳转日期",
     "h2_2": "日期转时间戳",
     "pick_date": "日期选择："
-
+  },
+  "timestampPage": {
+    "title": "时间戳、日期转换器",
+    "description": "在线时间戳和日期转换",
+    "h1": "时间戳转换器",
+    "h2_1": "时间戳转日期",
+    "h2_2": "日期转时间戳",
+    "pick_date": "日期选择：",
+    "convert": "转换"
   },
   "worksPage": {
     "title": "在线编辑、格式化和美化非标准JSON工具，只需将其粘贴到下面即可:",

@@ -81,6 +81,19 @@ export const getVideosPageLanguageText = async () => {
   }
 }
 
+export const getTimestampPageLanguageText = async () => {
+  const tVideosPage = await getTranslations('timestampPage');
+  return {
+    title: tVideosPage('title'),
+    description: tVideosPage('description'),
+    h1: tVideosPage('h1'),
+    h2_1: tVideosPage('h2_1'),
+    h2_2: tVideosPage('h2_2'),
+    pick_date: tVideosPage('pick_date'),
+    convert: tVideosPage('convert'),
+  }
+}
+
 export const getPrivacyPolicyLanguageText = async () => {
   const tPrivacyPolicy = await getTranslations('privacyPolicy');
   return {

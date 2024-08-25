@@ -1,17 +1,17 @@
 import PageComponent from "./PageComponent";
 import {unstable_setRequestLocale} from 'next-intl/server';
-import {getIndexLanguageText, getVideosPageLanguageText} from "~/configs/languageText";
+import {getIndexLanguageText, getTimestampPageLanguageText} from "~/configs/languageText";
 
 export default async function Videos({params: {locale = ''}}) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
   const indexLanguageText = await getIndexLanguageText();
-  const videosLanguageText = await getVideosPageLanguageText();
+  const timestampLanguageText = await getTimestampPageLanguageText();
 
   return (
     <PageComponent
       locale={locale}
-      videosLanguageText={videosLanguageText}
+      timestampLanguageText={timestampLanguageText}
       indexLanguageText={indexLanguageText}
     />
   )

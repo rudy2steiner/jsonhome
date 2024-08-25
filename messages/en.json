@@ -85,7 +85,17 @@
     "h1": "Timestamp Converter",
     "h2_1": "Convert timestamp to date",
     "h2_2": "Convert date to timestamp",
-    "pick_date": "Pick date:"
+    "pick_date": "Pick date:",
+    "convert": "convert"
+  },
+  "timestampPage": {
+    "title": "Timestamp and date converter",
+    "description": "online timestamp and date converter",
+    "h1": "Timestamp Converter",
+    "h2_1": "Convert timestamp to date",
+    "h2_2": "Convert date to timestamp",
+    "pick_date": "Pick date:",
+    "convert": "Convert"
   },
   "worksPage": {
     "title": "Online edit,format,beautify tool for non-standard json",

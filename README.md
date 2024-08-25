@@ -70,9 +70,13 @@ npm run dev
 #or
 pnpm dev
 ```
-### timestam
+### Monaco editor
 ```agsl
-https://github.com/mCodex/react-timestamper
+https://www.npmjs.com/package/@monaco-editor/react
+loader.config({ paths: { vs: '...' } })
+```
+### timestamp
+``` 
 
 ```
 ### 5. Open [http://localhost](http://localhost) with your browser to see it.
