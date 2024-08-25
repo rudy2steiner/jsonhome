@@ -27,6 +27,7 @@ import Picker from 'rc-picker';
 import momentGenerateConfig from "rc-picker/lib/generate/moment";
 import React from 'react';
 import zhCN from 'rc-picker/lib/locale/zh_CN';
+import en_US from 'rc-picker/lib/locale/en_US';
 import "rc-picker/assets/index.css";
 import { Container } from './styles';
 
@@ -168,7 +169,7 @@ const PageComponent = ({
                   <div className="flex justify-between ml-2">
                   <Picker<Moment>
                     {...sharedProps}
-                    locale={zhCN}
+                    locale={en_US}
                     defaultPickerValue={defaultValue.clone()}
                     showTime={{
                       showHour:true,
