@@ -35,6 +35,7 @@ const PageComponent = ({
       <HeadInfo
         title={jsonCompareText.title}
         description={jsonCompareText.description}
+        keywords={jsonCompareText.keywords}
         locale={locale}
         page={"/json-compare"}
       />
