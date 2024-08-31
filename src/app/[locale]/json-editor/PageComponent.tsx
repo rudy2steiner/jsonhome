@@ -45,6 +45,7 @@ const PageComponent = ({
       <HeadInfo
         title={jsonEditorText.title}
         description={jsonEditorText.description}
+        keywords={jsonEditorText.keywords}
         locale={locale}
         page={"/json-editor"}
       />

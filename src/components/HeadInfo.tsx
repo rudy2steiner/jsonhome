@@ -3,6 +3,7 @@ import { languages } from "~/config";
 const HeadInfo = ({
                     title = "",
                     description = "",
+                    keywords = "json format,format json",
                     page = "",
                     locale = "en"
                   }) => {
@@ -37,6 +38,8 @@ const HeadInfo = ({
           }
         })
       }
+      <meta name='keywords' content={keywords} />
+
     </>
   )
 }

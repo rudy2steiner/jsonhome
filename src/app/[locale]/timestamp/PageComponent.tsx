@@ -104,6 +104,7 @@ const PageComponent = ({
       <HeadInfo
         title={timestampLanguageText.title}
         description={timestampLanguageText.description}
+        keywords={timestampLanguageText.keywords}
         locale={locale}
         page={"/timestamp"}
       />

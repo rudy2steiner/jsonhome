@@ -45,6 +45,7 @@ const PageComponent = ({
     <HeadInfo
         title={indexLanguageText.title}
         description={indexLanguageText.description}
+        keywords={indexLanguageText.keywords}
         locale={locale}
         page={""}
     />
