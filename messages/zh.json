@@ -4,6 +4,7 @@
     "language": "简体中文",
     "languageInChineseSimple": "简体中文",
     "title": "在线编辑、格式化、语法验证和美化JSON",
+    "keywords": "json格式化,格式化json",
     "description": "在线编辑、格式化、语法验证和美化JSON。",
     "loadingText": "加载中...",
     "generateText": "生成中...",
@@ -89,6 +90,7 @@
   "timestampPage": {
     "title": "时间戳、日期转换器",
     "description": "在线时间戳和日期转换",
+    "keywords": "convert from unix time,timestamp converter,unix time 格式化, 时间戳格式化",
     "h1": "时间戳转换器",
     "h2_1": "时间戳转日期",
     "h2_2": "日期转时间戳",
@@ -107,6 +109,7 @@
   "jsonEditorPage": {
     "title": "在线编辑、格式化和美化非标准JSON工具",
     "description": "在线编辑、格式化和美化非标准JSON工具。",
+    "keywords": "json格式化,格式化json",
     "h1": "在线编辑、格式化和美化非标准JSON工具，只需将其粘贴到下面即可:",
     "format": "格式化",
     "compact": "压缩",
@@ -126,6 +129,7 @@
   "jsonComparePage": {
     "title": "比较JSON 或文本的在线比较工具",
     "description": "比较 JSON 或任何文本的在线比较工具。",
+    "keywords": "json在线对比,json对比,文本对比",
     "h1": "比较JSON 或文本的在线比较工具，只需将其粘贴到下面即可：",
     "format": "格式化",
     "compact": "压缩",
