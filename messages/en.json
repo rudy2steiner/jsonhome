@@ -6,7 +6,7 @@
     "title": "Online edit,format,validate,beautify tool for json",
     "description": "Online edit,format,validate,beautify tool for json.",
     "h1": "Online edit,format,validate,beautify tool for json. just  paste it below:",
-    "keywords": "json editor,json format,format json,online json format,json format checker,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
+    "keywords": "online json formatter,json editor,json format,format json,online json format,json format checker,json formatter and validator,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
     "loadingText": "Loading...",
     "generateText": "Generating...",
     "buttonText": "Generate",
@@ -132,7 +132,7 @@
   "jsonComparePage": {
     "title": "Online compare tool for json or other text",
     "description": "Online compare tool for json or other text.",
-    "keywords": "text compare json,json compare,json diff,text diff",
+    "keywords": "text compare json,compare json online,json compare online,online compare json,online json compare,compare jsons online,json compare,json diff,text diff",
     "h1": "Online compare tool for json or other text. just paste it below:",
     "format": "format",
     "compact": "compact",
