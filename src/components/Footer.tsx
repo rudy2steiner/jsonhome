@@ -4,7 +4,8 @@ import Link from "next/link";
 const navigation = {
   product: [
     {name: 'JSON Home', href: 'https://jsonhome.com'},
-    {name: 'Photo Maker', href: 'https://photomaker.co'}
+    {name: 'Compare JSON', href: 'https://www.comparejson.com'}
+    {name: 'Photo Maker', href: 'https://photomaker.co'},
   ],
   legal: [
     {name: 'Privacy Policy', href: '/'},
