@@ -27,6 +27,7 @@ import Picker from 'rc-picker';
 import momentGenerateConfig from "rc-picker/lib/generate/moment";
 import React from 'react';
 import zhCN from 'rc-picker/lib/locale/zh_CN';
+import en_US from 'rc-picker/lib/locale/en_US';
 import "rc-picker/assets/index.css";
 import { Container } from './styles';
 
@@ -37,7 +38,7 @@ interface FormValues {
 
 const PageComponent = ({
                          locale = '',
-                         videosLanguageText,
+                         timestampLanguageText,
                          indexLanguageText
                        }) => {
     const editorRef = useRef(null);
@@ -101,8 +102,9 @@ const PageComponent = ({
   return (
     <>
       <HeadInfo
-        title={videosLanguageText.title}
-        description={videosLanguageText.description}
+        title={timestampLanguageText.title}
+        description={timestampLanguageText.description}
+        keywords={timestampLanguageText.keywords}
         locale={locale}
         page={"/timestamp"}
       />
@@ -111,8 +113,8 @@ const PageComponent = ({
           <header className="mt-10">
             <FiRepeat size={40} color="#F97316" />
             <div>
-              <h1>{videosLanguageText.h1}</h1>
-              <h2 className="text-xs">{videosLanguageText.h2_1}</h2>
+              <h1>{timestampLanguageText.h1}</h1>
+              <h2 className="text-xs">{timestampLanguageText.h2_1}</h2>
             </div>
           </header>
           <Formik initialValues={initialValues} onSubmit={handleFormOnSubmit}>
@@ -143,7 +145,7 @@ const PageComponent = ({
                        <option value="ms">ms</option>
                   </select>
                   <Button type="submit" className="ml-5">
-                    Convert
+                    {timestampLanguageText.convert}
                   </Button>
                </div>
                 {date && (
@@ -162,13 +164,13 @@ const PageComponent = ({
      <ScWrapper>
             <ScInner>
               <ScMain >
-                <h2 className="mb-5 mx-auto mt-10 font-bold">{videosLanguageText.h2_2}</h2>
+                <h2 className="mb-5 mx-auto mt-10 font-bold">{timestampLanguageText.h2_2}</h2>
                 <ScSelectWrapper >
-                  <ScAction className="text-center">{videosLanguageText.pick_date}</ScAction>
+                  <ScAction className="text-center">{timestampLanguageText.pick_date}</ScAction>
                   <div className="flex justify-between ml-2">
                   <Picker<Moment>
                     {...sharedProps}
-                    locale={zhCN}
+                    locale={en_US}
                     defaultPickerValue={defaultValue.clone()}
                     showTime={{
                       showHour:true,

@@ -5,6 +5,7 @@ export const getIndexLanguageText = async () => {
   return {
     title: tIndex('title'),
     description: tIndex('description'),
+    keywords: tIndex('keywords'),
     loadingText: tIndex('loadingText'),
     generateText: tIndex('generateText'),
     buttonText: tIndex('buttonText'),
@@ -60,6 +61,7 @@ export const getJsonEditorPageLanguageText = async () => {
   return {
     title: tWorks('title'),
     description: tWorks('description'),
+    keywords: tWorks('keywords'),
     h1: tWorks('h1'),
     format: tWorks('format'),
     compact: tWorks('compact'),
@@ -78,6 +80,20 @@ export const getVideosPageLanguageText = async () => {
     h2_1: tVideosPage('h2_1'),
     h2_2: tVideosPage('h2_2'),
     pick_date: tVideosPage('pick_date'),
+  }
+}
+
+export const getTimestampPageLanguageText = async () => {
+  const tVideosPage = await getTranslations('timestampPage');
+  return {
+    title: tVideosPage('title'),
+    description: tVideosPage('description'),
+    keywords: tVideosPage('keywords'),
+    h1: tVideosPage('h1'),
+    h2_1: tVideosPage('h2_1'),
+    h2_2: tVideosPage('h2_2'),
+    pick_date: tVideosPage('pick_date'),
+    convert: tVideosPage('convert'),
   }
 }
 
@@ -150,6 +166,7 @@ export const getJsonComparePageLanguageText = async () => {
   return {
     title: tPlaygroundPage('title'),
     description: tPlaygroundPage('description'),
+    keywords: tPlaygroundPage('keywords'),
     format: tPlaygroundPage('format'),
     compact: tPlaygroundPage('compact'),
     h1: tPlaygroundPage('h1'),
