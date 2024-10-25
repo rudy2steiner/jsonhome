@@ -74,7 +74,6 @@ pnpm dev
 ```agsl
 https://www.npmjs.com/package/@monaco-editor/react
 loader.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.21.1/min/vs' } })
-
 ```
 ### timestamp
 ``` 
