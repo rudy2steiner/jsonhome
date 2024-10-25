@@ -11,7 +11,7 @@ import Script from 'next/script'
 import { languages,getLanguageByLang,getEditorLocale} from "~/config";
 import {Editor,loader,useMonaco,DiffEditor} from "@monaco-editor/react";
 
-loader.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs' } });
+loader.config({ paths: { vs: "/vs" } });
 
 const PageComponent = ({
                          locale = '',
