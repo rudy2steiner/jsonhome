@@ -22,6 +22,10 @@ const nextConfig = {
              source: '/timestamp.html',
              destination: '/en/timestamp',
           },
+          {
+           source: '/en/json-editor',
+           destination: '/en/json-formatter',
+          },
          ]
         }
 
