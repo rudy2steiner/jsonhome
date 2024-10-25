@@ -9,15 +9,17 @@ import {useInterval} from "ahooks";
 import Link from "next/link";
 import Script from 'next/script'
 import { languages,getLanguageByLang,getEditorLocale} from "~/config";
+import * as monaco from 'monaco-editor';
 import {Editor,loader,useMonaco} from "@monaco-editor/react";
 
-loader.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs' } });
+loader.config({ paths: { vs: "/vs" } });
 
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
                          jsonEditorText
                        }) => {
+
   const editorRef = useRef(null);
   const editorLocale = getEditorLocale(locale)
   console.log('editor mount locale:'+{locale}+'->'+editorLocale);
