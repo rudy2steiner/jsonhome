@@ -44,6 +44,7 @@ const PageComponent = ({
                        }) => {
 
   const editorRef = useRef(null);
+  const demoEditorRef = useRef(null);
   const editorLocale = getEditorLocale(locale);
   console.log('editor mount locale:'+{locale}+'->'+editorLocale);
   const [isValidJson, setIsValidJson] = useState(false);
@@ -52,8 +53,14 @@ const PageComponent = ({
   function handleEditorDidMount(editor, monaco) {
       editorRef.current = editor;
   }
+  function handleExampleEditorDidMount(editor, monaco) {
+    console.log('handleEditorDidMount');
+    const handler = editor.onDidChangeModelDecorations(_ => {
+      handler.dispose();
+      editor.getAction("editor.action.formatDocument").run();
+    });
+  }
   function format() {
-
     editorRef.current.trigger('', 'editor.action.formatDocument');
   }
   function minify() {
@@ -77,6 +84,10 @@ const PageComponent = ({
       setIsValidJson(!!hasContent && !hasError);
       setErrors(errorMessage);
    }, []);
+   const handleExampleEditorValidation= useCallback((markers) => {
+      console.log('example validate');
+      demoEditorRef.current.trigger('', 'editor.action.formatDocument');
+    }, []);
     const handleDownloadClick = () => {
     const value = editorRef.current?.getValue();
     value && downloadJsonFile(value);
@@ -111,6 +122,7 @@ const PageComponent = ({
       value && editor?.getAction("editor.action.formatDocument")?.run();
     }, []);
   const handleClearClick = () => editorRef.current?.setValue("");
+
   return (
     <>
        <HeadInfo
@@ -121,7 +133,7 @@ const PageComponent = ({
            page={"/json-studio"}
          />
        <Header locale={locale} page={"json-studio"} indexLanguageText={indexLanguageText}/>
-       <p className="text-black text-center text-xl mb-3 mt-10">{jsonEditorText.h1}</p>
+       <p className="text-black text-center text-xl mb-3 mt-10">{jsonEditorText.title}</p>
        <div className="mx-auto w-[80%] h-[100%] border-blue-200 border-2 mb-2 mt-3">
          <Stack styles={stackStyles}>
             <Stack.Item>
@@ -137,34 +149,74 @@ const PageComponent = ({
                  toolTexts={jsonEditorText} />
             </Stack.Item>
             <Stack styles={stackStyles}>
-                        <Stack.Item
-                                  grow
-                                  align="stretch"
-                                  style={{
-                                    height: `calc(100% - 20vh)`,
-                                  }}
-                                >
-                         <Editor
-                                      height="calc(60vh)"
-                                      language="json"
-                                      defaultValue=''
-                                      onMount={handleEditorDidMount}
-                                      onChange={handleEditorChange}
-                                      onValidate={handleEditorValidation}
-                                    />
-                         </Stack.Item>
-                         <Stack.Item
-                           style={{
-                             height: `15vh`,
-                           }}
-                         >
-                           <ErrorMessageBar errors={errors} toolTexts={jsonEditorText} />
-                         </Stack.Item>
-                     </Stack>
+                <Stack.Item
+                          grow
+                          align="stretch"
+                          style={{
+                            height: `calc(100% - 20vh)`,
+                          }}
+                        >
+                 <Editor
+                              height="calc(60vh)"
+                              language="json"
+                              defaultValue=''
+                              onMount={handleEditorDidMount}
+                              onChange={handleEditorChange}
+                              onValidate={handleEditorValidation}
+                            />
+                 </Stack.Item>
+                 <Stack.Item
+                   style={{
+                     height: `15vh`,
+                   }}
+                 >
+                   <ErrorMessageBar errors={errors} toolTexts={jsonEditorText} />
+                 </Stack.Item>
+             </Stack>
          </Stack>
        </div>
-
-
+       <section >
+         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+             <div className="max-w-screen-md mb-2 lg:mb-5">
+                 <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{jsonEditorText.h1}</h1>
+                 <p className="text-gray-500 sm:text-xl dark:text-gray-400">Format JSON, JSON file, JSON response online.</p>
+             </div>
+             <div className="space-y-8 ">
+                 <div>
+                     <h2 className="mb-2 text-xl font-bold dark:text-white">JSON Formatter</h2>
+                     <p className="text-gray-500 dark:text-gray-400">JSON Formatter is a tool that helps you format JSON data in a clear and readable way. It can be used to format both JSON and JSON file.</p>
+                     <p className="font-inter mt-4 text-base font-light text-gray-500 ml-5">Features:</p>
+                     <ul className="list-inside list-disc ">
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">Syntax highlighting: JSON Formatter uses syntax highlighting to make JSON data easier to read.</li>
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">Pretty printing: JSON Formatter can pretty-print JSON data, making it easier to see the structure of the data.</li>
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">Validation: JSON Formatter can validate JSON data to make sure that it is valid JSON.</li>
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">Minification: JSON Formatter can minify JSON data, reducing its size.</li>
+                           <li className="font-inter text-base font-light text-gray-500 ml-10">JSON file format: JSON Formatter support upload a JSON file to format and download formatted json file.</li>
+                     </ul>
+                      <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">How to use JSON Formatter ?</h3>
+                      <ul className="list-inside list-disc">
+                        <li className="font-inter text-base font-light text-gray-500 ml-10">Copy and paste JSON data into the input field or upload a json file.</li>
+                        <li className="font-inter text-base font-light text-gray-500 ml-10">Click the <b className="font-bold">Format</b> button.</li>
+                        <li className="font-inter text-base font-light text-gray-500 ml-10">The formatted JSON data will be displayed in the output field.</li>
+                     </ul>
+                     <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">JSON Format Examples</h3>
+                     <Editor height='100px' language="json"  defaultValue='{"name": "John Doe", "age": 30, "occupation": "Software engineer"}'
+                             onMount={handleExampleEditorDidMount}
+                     />
+                 </div>
+                 <div>
+                     <h2 className="mb-2 text-xl font-bold dark:text-white">JSON Validator</h2>
+                     <p className="text-gray-500 dark:text-gray-400">JSON Validator is a tool that helps you validate JSON data to make sure that it is valid JSON. It can be used to validate both JSON and JSON file.</p>
+                     <p className="font-inter mt-4 text-base font-light text-gray-500 ml-5">Features:</p>
+                      <ul className="list-inside list-disc ">
+                           <li className="font-inter text-base font-light text-gray-500 ml-10">Syntax validation: JSON Validator checks the syntax of JSON data to make sure that it is valid JSON.</li>
+                           <li className="font-inter text-base font-light text-gray-500 ml-10">Schema validation: JSON Validator can also validate JSON data against a JSON schema.</li>
+                           <li className="font-inter text-base font-light text-gray-500 ml-10">Error reporting: JSON Validator provides detailed error messages if JSON data is not valid.</li>
+                      </ul>
+                 </div>
+             </div>
+         </div>
+       </section>
        <Footer
            locale={locale}
            description={indexLanguageText.description}
