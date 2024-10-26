@@ -109,12 +109,18 @@
     "generateNew": "Generate New"
   },
   "jsonEditorPage": {
-    "title": "Online edit,format,beautify tool for non-standard json",
-    "description": "Online edit,format,beautify tool for non-standard json.",
+    "title": "JSON Formatter: format, edit, view, compare json online | www.jsonhome.com",
+    "description": "Format JSON, format JSON file, format JSON response online. Upload a JSON file, json file format in seconds, then download your formatted json file.",
     "keywords": "json editor,json format,format json,online json format,json format checker,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
-    "h1": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
-    "format": "format",
-    "compact": "compact",
+    "h1": "JSON Formatter Online",
+    "format": "Format",
+    "compact": "Compact",
+    "upload": "Upload",
+    "download": "Download",
+    "clear": "Clear",
+    "auto_format": "Auto Format",
+    "compare": "Compare",
+    "problem": "Problem",
     "h1Text": "SoraWebui - Works",
     "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
     "generateNew": "Generate New"

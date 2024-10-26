@@ -107,12 +107,18 @@
     "generateNew": "生成新视频"
   },
   "jsonEditorPage": {
-    "title": "在线编辑、格式化和美化非标准JSON工具",
+    "title": "在线格式化JSON工具",
     "description": "在线编辑、格式化和美化非标准JSON工具。",
     "keywords": "json格式化,格式化json",
-    "h1": "在线编辑、格式化和美化非标准JSON工具，只需将其粘贴到下面即可:",
+    "h1": "JSON 格式化",
     "format": "格式化",
     "compact": "压缩",
+    "upload": "上传",
+    "download": "下载",
+    "clear": "清理",
+    "auto_format": "自动格式化",
+    "compare": "比较",
+    "problem": "问题",
     "h1Text": "SoraWebui - 作品",
     "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",
     "generateNew": "生成新视频"

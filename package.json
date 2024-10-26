@@ -31,7 +31,8 @@
     "styled-components": "^6.1.12",
     "undici": "^6.6.2",
     "uuid": "^9.0.1",
-    "vanilla-jsoneditor": "0.23.8"
+    "vanilla-jsoneditor": "0.23.8",
+    "@fluentui/react": "^8.114.0"
   },
   "devDependencies": {
     "@types/node": "^20",

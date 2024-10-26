@@ -92,7 +92,6 @@ const PageComponent = ({
          if (isAutoPrettifyOn) {
             editorRef.current.trigger('', 'editor.action.formatDocument');
          }
-         console.log(editorRef.current?.getValue());
        },
        [isAutoPrettifyOn]
   );
@@ -121,8 +120,8 @@ const PageComponent = ({
            page={"/json-studio"}
          />
        <Header locale={locale} page={"json-studio"} indexLanguageText={indexLanguageText}/>
-       <p className="text-black text-center text-xl mb-3 mt-10">{jsonEditorText.h1}</p>
-       <div className="mx-auto w-[80%] h-[100%] border-blue-200 border-2 mb-2 mt-3">
+       <p className="text-black text-center text-xl mb-3 mt-5">{jsonEditorText.h1}</p>
+       <div className="mx-auto w-[80%] h-[100%] border-blue-200 border-2 mb-2">
          <Stack styles={stackStyles}>
             <Stack.Item>
                <ToolBar
@@ -163,8 +162,6 @@ const PageComponent = ({
                      </Stack>
          </Stack>
        </div>
-
-
        <Footer
            locale={locale}
            description={indexLanguageText.description}
