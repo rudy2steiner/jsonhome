@@ -3,11 +3,11 @@
     "lang": "en",
     "language": "English",
     "languageInChineseSimple": "英语",
-    "title": "Edit,format,validate,beautify,compare json online",
-    "description": "Edit,format,validate,beautify,compare json online.",
+    "title": "Format,validate,compare json online",
+    "description": "Format json, validate json, compare json online.",
     "h1": "Online edit,format,validate,beautify tool for json. just  paste it below:",
     "keywords": "online json formatter,json editor,json format,format json,online json format,json format checker,json formatter and validator,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
-    "loadingText": "json editor online,Loading...",
+    "loadingText": "JSON Formatter Loading...",
     "generateText": "Generating...",
     "buttonText": "Generate",
     "placeholderText": "Type or paste text here...",
@@ -64,13 +64,13 @@
     "h4_8_p": "If you have any questions or concerns regarding our Privacy Policy, please contact us at "
   },
   "indexQuestion": {
-    "h2_0": "Frequently Asked Questions ",
+    "h2_0": "JSON Home FAQs",
     "h2_1": "What is JSON Home?",
-    "h2_1_p1": "A json toolset, including online edit, format, validate, beautify and so on.",
+    "h2_1_p1": "JSON toolset, including json formatter, json validator, json compare tool and so on.",
     "h2_1_p2": "It generates realistic and imaginative scenes based on text descriptions, creating multiple characters and accurately simulating specific motions and scene details.",
     "h2_1_p3": "Impressive in language understanding and video production, Sora offers creative professionals a new tool for innovation. ",
     "h2_1_p4": "For more detailed information, visit OpenAI's official website ",
-    "h2_2": "What is JSON data and features?",
+    "h2_2": "What is JSON and features?",
     "h2_2_p1": "JSON (JavaScript Object Notation) is a lightweight, text-based data format used for representing structured data. It is commonly used to transmit data between a server and web application, as well as for data storage and configuration.",
     "h2_2_p2": "Key Features of JSON:",
     "h2_2_p3a": "Human-readable: JSON data is written in a format that is easy for humans to understand and edit.",
@@ -78,7 +78,6 @@
     "h2_2_p3c": "Data types: JSON supports a variety of data types, including strings, numbers, booleans, arrays, and objects. ",
     "h2_2_p3d": "Hierarchical structure: JSON data can be organized into hierarchical structures using objects and arrays. ",
     "h2_2_p3e": "Lightweight: JSON is a compact data format that is efficient to transmit and store. "
-
   },
   "videosPage": {
     "title": "Timestamp and date converter",
@@ -109,12 +108,18 @@
     "generateNew": "Generate New"
   },
   "jsonEditorPage": {
-    "title": "Online edit,format,beautify tool for non-standard json",
-    "description": "Online edit,format,beautify tool for non-standard json.",
+    "title": "JSON Formatter: format, validate, compare json online",
+    "description": "Format JSON, format JSON file, format JSON response online. Upload a JSON file, json file format in seconds, then download your formatted json file.",
     "keywords": "json editor,json format,format json,online json format,json format checker,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
-    "h1": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
-    "format": "format",
-    "compact": "compact",
+    "h1": "JSON Formatter Online",
+    "format": "Format",
+    "compact": "Compact",
+    "upload": "Upload",
+    "download": "Download",
+    "clear": "Clear",
+    "auto_format": "Auto Format",
+    "compare": "Compare",
+    "problem": "Problem",
     "h1Text": "SoraWebui - Works",
     "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
     "generateNew": "Generate New"
