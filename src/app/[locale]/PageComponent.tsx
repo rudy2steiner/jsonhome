@@ -242,6 +242,41 @@ const PageComponent = ({
                           <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l4}</li>
                      </ul>
                 </div>
+                <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center">
+                                 <h2 className="mx-auto text-center font-bold text-black text-xl"> {questionText.h2_0} </h2>
+                                 <div className="mt-10 flex w-full flex-col space-y-4">
+                                     <div className="collapse collapse-arrow bg-base-200">
+                                         <input type="radio" name="my-accordion-2" defaultChecked/>
+                                         <div className="collapse-title text-xl font-medium">
+                                             <h3 className="font-bold text-black text-xl">{questionText.h2_1}</h3>
+                                         </div>
+                                         <div className="collapse-content">
+                                             <p className="font-inter text-base font-light text-gray-500">
+                                                {questionText.h2_1_p1}
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div className="collapse collapse-arrow bg-base-200">
+                                         <input type="radio" name="my-accordion-2"  />
+                                         <div className="collapse-title text-xl font-medium">
+                                             <h3 className="font-bold text-black text-xl">{questionText.h2_2}</h3>
+                                         </div>
+                                         <div className="collapse-content">
+                                             <p className="font-inter text-base font-light text-gray-500">
+                                                 {questionText.h2_2_p1}
+                                             </p>
+                                             <p className="font-inter mt-4 text-base font-light text-gray-500">{questionText.h2_2_p2}</p>
+                                             <ul className="list-inside list-disc">
+                                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3a}</li>
+                                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3b}</li>
+                                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3c}</li>
+                                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3d}</li>
+                                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3e}</li>
+                                             </ul>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
             </div>
         </div>
     </section>
