@@ -20,6 +20,27 @@
     "fakeSoraTip": "FakeSora is designed to simulate the yet-to-be-released OpenAI Sora API.",
     "soraTip": "OpenAI has not released Sora's API yet."
   },
+  "footer": {
+    "lang": "en",
+    "language": "English",
+    "languageInChineseSimple": "英语",
+    "title": "Format json, validate json, compare json online.",
+    "description": "Format JSON, format JSON file, format JSON response online. Upload a JSON file, json file format in seconds, then download your formatted json file",
+    "h1": "Online edit,format,validate,beautify tool for json. just  paste it below:",
+    "keywords": "online json formatter,json editor,json format,format json,online json format,json format checker,json formatter and validator,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
+    "loadingText": "JSON Formatter Loading...",
+    "generateText": "Generating...",
+    "buttonText": "Generate",
+    "placeholderText": "Type or paste text here...",
+    "pDescription": "Online edit,format,validate,beautify tool for json. just  paste it below:",
+    "soraVideoExample": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
+    "prompt": "Online compare tool for json or any text. just paste it below:",
+    "soraWorksTitle": "Works",
+    "soraResultTitle": "Result",
+    "moreExample": "more example video",
+    "fakeSoraTip": "FakeSora is designed to simulate the yet-to-be-released OpenAI Sora API.",
+    "soraTip": "OpenAI has not released Sora's API yet."
+  },
   "privacyPolicy": {
     "title": "Privacy Policy ｜ ",
     "description": "",

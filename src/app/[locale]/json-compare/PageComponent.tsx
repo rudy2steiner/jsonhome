@@ -16,6 +16,7 @@ loader.config({ paths: { vs: "/vs" } });
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
+                         footerLanguageText,
                          jsonCompareText
                        }) => {
   const lang = getEditorLocale(locale);
@@ -66,6 +67,7 @@ const PageComponent = ({
     <Footer
         locale={locale}
         description={indexLanguageText.description}
+        footerText={footerLanguageText}
     />
     </>
   )

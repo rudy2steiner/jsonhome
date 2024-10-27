@@ -50,6 +50,7 @@ const initialContent = {
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
+                         footerLanguageText,
                          initVideoList = [],
                          questionText,
                          jsonEditorText
@@ -282,6 +283,7 @@ const PageComponent = ({
     <Footer
         locale={locale}
         description={indexLanguageText.description}
+        footerText={footerLanguageText}
     />
     </>
   )

@@ -39,6 +39,7 @@ interface FormValues {
 const PageComponent = ({
                          locale = '',
                          timestampLanguageText,
+                         footerLanguageText,
                          indexLanguageText
                        }) => {
     const editorRef = useRef(null);
@@ -196,6 +197,7 @@ const PageComponent = ({
     <Footer
         locale={locale}
         description={indexLanguageText.description}
+        footerText={footerLanguageText}
     />
     </>
   )

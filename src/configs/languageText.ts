@@ -21,6 +21,27 @@ export const getIndexLanguageText = async () => {
   };
 }
 
+export const getFooterLanguageText = async () => {
+  const tIndex = await getTranslations('footer');
+  return {
+    title: tIndex('title'),
+    description: tIndex('description'),
+    keywords: tIndex('keywords'),
+    loadingText: tIndex('loadingText'),
+    generateText: tIndex('generateText'),
+    buttonText: tIndex('buttonText'),
+    placeholderText: tIndex('placeholderText'),
+    h1: tIndex('h1'),
+    pDescription: tIndex('pDescription'),
+    soraVideoExample: tIndex('soraVideoExample'),
+    prompt: tIndex('prompt'),
+    moreExample: tIndex('moreExample'),
+    soraResultTitle: tIndex('soraResultTitle'),
+    fakeSoraTip: tIndex('fakeSoraTip'),
+    soraTip: tIndex('soraTip'),
+  };
+}
+
 
 export const getQuestionLanguageText = async () => {
   const tIndexQuestion = await getTranslations('indexQuestion');
