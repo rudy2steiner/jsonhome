@@ -5,6 +5,7 @@ import HeadInfo from "~/components/HeadInfo";
 const PageComponent = ({
                          locale = '',
                          privacyPolicyLanguageText,
+                         footerLanguageText,
                          indexLanguageText,
                        }) => {
 
@@ -48,6 +49,7 @@ const PageComponent = ({
       <Footer
         locale={locale}
         description={indexLanguageText.description}
+        footerText={footerLanguageText}
       />
     </>
   )

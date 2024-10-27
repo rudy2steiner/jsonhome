@@ -107,18 +107,6 @@ export const getJsonEditorPageLanguageText = async () => {
   }
 }
 
-export const getVideosPageLanguageText = async () => {
-  const tVideosPage = await getTranslations('videosPage');
-  return {
-    title: tVideosPage('title'),
-    description: tVideosPage('description'),
-    h1: tVideosPage('h1'),
-    h2: tVideosPage('h2'),
-    h2_1: tVideosPage('h2_1'),
-    pick_date: tVideosPage('pick_date'),
-  }
-}
-
 export const getTimestampPageLanguageText = async () => {
   const tVideosPage = await getTranslations('timestampPage');
   return {
@@ -126,8 +114,8 @@ export const getTimestampPageLanguageText = async () => {
     description: tVideosPage('description'),
     keywords: tVideosPage('keywords'),
     h1: tVideosPage('h1'),
-    h2: tVideosPage('h2'),
     h2_1: tVideosPage('h2_1'),
+    h2_2: tVideosPage('h2_2'),
     pick_date: tVideosPage('pick_date'),
     convert: tVideosPage('convert'),
   }
