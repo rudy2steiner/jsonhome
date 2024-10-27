@@ -12,7 +12,6 @@ import { languages,getLanguageByLang,getEditorLocale} from "~/config";
 import {Editor,loader,useMonaco,DiffEditor} from "@monaco-editor/react";
 
 loader.config({ paths: { vs: "/vs" } });
-
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
@@ -63,7 +62,6 @@ const PageComponent = ({
         </div>
       </div>
     </div>
-
     <Footer
         locale={locale}
         description={indexLanguageText.description}
@@ -71,7 +69,5 @@ const PageComponent = ({
     />
     </>
   )
-
-
 }
 export default PageComponent

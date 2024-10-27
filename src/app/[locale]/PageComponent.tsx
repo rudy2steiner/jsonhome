@@ -203,82 +203,47 @@ const PageComponent = ({
      </Stack>
    </div>
    <section >
-     <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-         <div className="max-w-screen-md mb-2 lg:mb-5">
-             <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{jsonEditorText.h1}</h1>
-             <p className="text-gray-500 sm:text-xl dark:text-gray-400">Format JSON, JSON file, JSON response online.</p>
-         </div>
-         <div className="space-y-10">
-             <div>
-                 <h2 className="mb-2 text-xl font-bold dark:text-white">JSON Formatter</h2>
-                 <p className="text-gray-500 dark:text-gray-400">JSON Formatter is a tool that helps you format JSON data in a clear and readable way. It can be used to format both JSON and JSON file.</p>
-                 <p className="font-inter mt-4 text-base font-light text-gray-500 ml-5">Features:</p>
-                 <ul className="list-inside list-disc ">
-                      <li className="font-inter text-base font-light text-gray-500 ml-10">Syntax highlighting: JSON Formatter uses syntax highlighting to make JSON data easier to read.</li>
-                      <li className="font-inter text-base font-light text-gray-500 ml-10">Pretty printing: JSON Formatter can pretty-print JSON data, making it easier to see the structure of the data.</li>
-                      <li className="font-inter text-base font-light text-gray-500 ml-10">Validation: JSON Formatter can validate JSON data to make sure that it is valid JSON.</li>
-                      <li className="font-inter text-base font-light text-gray-500 ml-10">Minification: JSON Formatter can minify JSON data, reducing its size.</li>
-                       <li className="font-inter text-base font-light text-gray-500 ml-10">JSON file format: JSON Formatter support upload a JSON file to format and download formatted json file.</li>
-                 </ul>
-                  <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">How to use JSON Formatter ?</h3>
-                  <ul className="list-inside list-disc">
-                    <li className="font-inter text-base font-light text-gray-500 ml-10">Copy and paste JSON data into the input field or upload a json file.</li>
-                    <li className="font-inter text-base font-light text-gray-500 ml-10">Click the <b className="font-bold">Format</b> button.</li>
-                    <li className="font-inter text-base font-light text-gray-500 ml-10">The formatted JSON data will be displayed in the output field.</li>
-                 </ul>
-                 <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">JSON Format Examples</h3>
-                 <Editor height='100px' language="json"  defaultValue='{"name": "John Doe", "age": 30, "occupation": "Software engineer"}'
-                         onMount={handleExampleEditorDidMount}
-                 />
-             </div>
-             <div>
-                 <h2 className="mb-2 text-xl font-bold dark:text-white">JSON Validator</h2>
-                 <p className="text-gray-500 dark:text-gray-400">JSON Validator is a tool that helps you validate JSON data to make sure that it is valid JSON. It can be used to validate both JSON and JSON file.</p>
-                 <p className="font-inter mt-4 text-base font-light text-gray-500 ml-5">Features:</p>
-                  <ul className="list-inside list-disc ">
-                       <li className="font-inter text-base font-light text-gray-500 ml-10">Syntax validation: JSON Validator checks the syntax of JSON data to make sure that it is valid JSON.</li>
-                       <li className="font-inter text-base font-light text-gray-500 ml-10">Schema validation: JSON Validator can also validate JSON data against a JSON schema.</li>
-                       <li className="font-inter text-base font-light text-gray-500 ml-10">Error reporting: JSON Validator provides detailed error messages if JSON data is not valid.</li>
-                       <li className="font-inter text-base font-light text-gray-500 ml-10">JSON file validation: JSON Formatter support upload a JSON file to validate and download validated json file.</li>
-                  </ul>
-             </div>
-             <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center">
-                 <h2 className="mx-auto text-center font-bold text-black text-xl"> {questionText.h2_0} </h2>
-                 <div className="mt-10 flex w-full flex-col space-y-4">
-                     <div className="collapse collapse-arrow bg-base-200">
-                         <input type="radio" name="my-accordion-2" defaultChecked/>
-                         <div className="collapse-title text-xl font-medium">
-                             <h3 className="font-bold text-black text-xl">{questionText.h2_1}</h3>
-                         </div>
-                         <div className="collapse-content">
-                             <p className="font-inter text-base font-light text-gray-500">
-                                {questionText.h2_1_p1}
-                             </p>
-                         </div>
-                     </div>
-                     <div className="collapse collapse-arrow bg-base-200">
-                         <input type="radio" name="my-accordion-2"  />
-                         <div className="collapse-title text-xl font-medium">
-                             <h3 className="font-bold text-black text-xl">{questionText.h2_2}</h3>
-                         </div>
-                         <div className="collapse-content">
-                             <p className="font-inter text-base font-light text-gray-500">
-                                 {questionText.h2_2_p1}
-                             </p>
-                             <p className="font-inter mt-4 text-base font-light text-gray-500">{questionText.h2_2_p2}</p>
-                             <ul className="list-inside list-disc">
-                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3a}</li>
-                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3b}</li>
-                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3c}</li>
-                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3d}</li>
-                                 <li className="font-inter text-base font-light text-gray-500">{questionText.h2_2_p3e}</li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <div className="max-w-screen-md mb-2 lg:mb-5">
+                <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{jsonEditorText.h1}</h1>
+                <p className="text-gray-500 sm:text-xl dark:text-gray-400">{jsonEditorText.h1_desc}</p>
+            </div>
+            <div className="space-y-8 ">
+                <div>
+                    <h2 className="mb-2 text-xl font-bold dark:text-white">{jsonEditorText.h2}</h2>
+                    <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.h2_desc}</p>
+                    <h3 className="font-inter mt-4 font-bold text-base dark:text-white ml-5">{jsonEditorText.h2_h3}</h3>
+                    <ul className="list-inside list-disc ">
+                         <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l1}</li>
+                         <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l2}</li>
+                         <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l3}</li>
+                         <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l4}</li>
+                         <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l5}</li>
+                    </ul>
+                     <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">{jsonEditorText.h2_h3_1}</h3>
+                     <ul className="list-inside list-disc">
+                       <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_1_l1}</li>
+                       <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_1_l2} <b className="font-bold">{jsonEditorText.h2_h3_1_l2_1}</b>{jsonEditorText.h2_h3_1_l2_2} </li>
+                       <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_1_l3}</li>
+                    </ul>
+                    <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">{jsonEditorText.h2_h3_2}</h3>
+                    <Editor height='100px' language="json"  defaultValue='{"name": "John Doe", "age": 30, "occupation": "Software engineer"}'
+                            onMount={handleExampleEditorDidMount}
+                    />
+                </div>
+                <div>
+                    <h2 className="mb-2 text-xl font-bold dark:text-white">{jsonEditorText.h2_1}</h2>
+                    <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.h2_1_desc}</p>
+                    <p className="font-inter mt-4 text-base font-bold   ml-5">{jsonEditorText.h2_1_h3}</p>
+                     <ul className="list-inside list-disc ">
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l1}</li>
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l2}</li>
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l3}</li>
+                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l4}</li>
+                     </ul>
+                </div>
+            </div>
+        </div>
     </section>
     <Footer
         locale={locale}

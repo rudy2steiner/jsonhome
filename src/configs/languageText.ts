@@ -78,23 +78,46 @@ export const getWorksPageLanguageText = async () => {
 }
 
 export const getJsonEditorPageLanguageText = async () => {
-  const tWorks = await getTranslations('jsonEditorPage');
+  const tJsonEditor = await getTranslations('jsonEditorPage');
   return {
-    title: tWorks('title'),
-    description: tWorks('description'),
-    keywords: tWorks('keywords'),
-    h1: tWorks('h1'),
-    format: tWorks('format'),
-    compact: tWorks('compact'),
-    "upload": tWorks('upload'),
-    "download": tWorks('download'),
-    "clear": tWorks('clear'),
-    "auto_format": tWorks('auto_format'),
-    "compare": tWorks('compare'),
-    "problem": tWorks('problem'),
-    h1Text: tWorks('h1Text'),
-    pDescription: tWorks('pDescription'),
-    generateNew: tWorks('generateNew'),
+    title: tJsonEditor('title'),
+    description: tJsonEditor('description'),
+    keywords: tJsonEditor('keywords'),
+    h1: tJsonEditor('h1'),
+    h1_desc: tJsonEditor('h1_desc'),
+    format: tJsonEditor('format'),
+    compact: tJsonEditor('compact'),
+    upload: tJsonEditor('upload'),
+    download: tJsonEditor('download'),
+    clear: tJsonEditor('clear'),
+    auto_format: tJsonEditor('auto_format'),
+    compare: tJsonEditor('compare'),
+    problem: tJsonEditor('problem'),
+    h1Text: tJsonEditor('h1Text'),
+    pDescription: tJsonEditor('pDescription'),
+    generateNew: tJsonEditor('generateNew'),
+    h2: tJsonEditor('h2'),
+    h2_desc: tJsonEditor('h2_desc'),
+    h2_h3: tJsonEditor('h2_h3'),
+    h2_h3_l1: tJsonEditor('h2_h3_l1'),
+    h2_h3_l2: tJsonEditor('h2_h3_l2'),
+    h2_h3_l3: tJsonEditor('h2_h3_l3'),
+    h2_h3_l4: tJsonEditor('h2_h3_l4'),
+    h2_h3_l5: tJsonEditor('h2_h3_l5'),
+    h2_h3_1: tJsonEditor('h2_h3_1'),
+    h2_h3_1_l1: tJsonEditor('h2_h3_1_l1'),
+    h2_h3_1_l2: tJsonEditor('h2_h3_1_l2'),
+    h2_h3_1_l2_1: tJsonEditor('h2_h3_1_l2_1'),
+    h2_h3_1_l2_2: tJsonEditor('h2_h3_1_l2_2'),
+    h2_h3_1_l3: tJsonEditor('h2_h3_1_l3'),
+    h2_h3_2: tJsonEditor('h2_h3_2'),
+    h2_1: tJsonEditor('h2_1'),
+    h2_1_desc: tJsonEditor('h2_1_desc'),
+    h2_1_h3: tJsonEditor('h2_1_h3'),
+    h2_1_h3_l1: tJsonEditor('h2_1_h3_l1'),
+    h2_1_h3_l2: tJsonEditor('h2_1_h3_l2'),
+    h2_1_h3_l3: tJsonEditor('h2_1_h3_l3'),
+    h2_1_h3_l4: tJsonEditor('h2_1_h3_l4')
   }
 }
 
@@ -104,8 +127,8 @@ export const getVideosPageLanguageText = async () => {
     title: tVideosPage('title'),
     description: tVideosPage('description'),
     h1: tVideosPage('h1'),
+    h2: tVideosPage('h2'),
     h2_1: tVideosPage('h2_1'),
-    h2_2: tVideosPage('h2_2'),
     pick_date: tVideosPage('pick_date'),
   }
 }
@@ -117,8 +140,8 @@ export const getTimestampPageLanguageText = async () => {
     description: tVideosPage('description'),
     keywords: tVideosPage('keywords'),
     h1: tVideosPage('h1'),
+    h2: tVideosPage('h2'),
     h2_1: tVideosPage('h2_1'),
-    h2_2: tVideosPage('h2_2'),
     pick_date: tVideosPage('pick_date'),
     convert: tVideosPage('convert'),
   }
