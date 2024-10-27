@@ -20,6 +20,27 @@
     "fakeSoraTip": "FakeSora 旨在模拟尚未发布的 OpenAI Sora API。",
     "soraTip": "OpenAI 尚未发布 Sora 的 API。"
   },
+  "footer": {
+    "lang": "en",
+    "language": "English",
+    "languageInChineseSimple": "英语",
+    "title": "JSON格式化、语法校验、比较工具。",
+    "description": "Format JSON, format JSON file, format JSON response online. Upload a JSON file, json file format in seconds, then download your formatted json file",
+    "h1": "Online edit,format,validate,beautify tool for json. just  paste it below:",
+    "keywords": "online json formatter,json editor,json format,format json,online json format,json format checker,json formatter and validator,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
+    "loadingText": "JSON Formatter Loading...",
+    "generateText": "Generating...",
+    "buttonText": "Generate",
+    "placeholderText": "Type or paste text here...",
+    "pDescription": "Online edit,format,validate,beautify tool for json. just  paste it below:",
+    "soraVideoExample": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
+    "prompt": "Online compare tool for json or any text. just paste it below:",
+    "soraWorksTitle": "Works",
+    "soraResultTitle": "Result",
+    "moreExample": "more example video",
+    "fakeSoraTip": "FakeSora is designed to simulate the yet-to-be-released OpenAI Sora API.",
+    "soraTip": "OpenAI has not released Sora's API yet."
+  },
   "privacyPolicy": {
     "title": "隐私政策 ｜ ",
     "description": "",
@@ -79,14 +100,6 @@
     "h2_2_p3d": "层次结构：JSON 数据可以使用对象和数组组织成层次结构。",
     "h2_2_p3e": "轻量级：JSON 是一种紧凑的数据格式，传输和存储都非常有效。"
   },
-  "videosPage": {
-    "title": "时间戳、日期转换器",
-    "description": "Sora 生成的视频，Sora 生成的最新视频。 | sorawebui.com",
-    "h1": "时间戳转换器",
-    "h2_1": "时间戳转日期",
-    "h2_2": "日期转时间戳",
-    "pick_date": "日期选择："
-  },
   "timestampPage": {
     "title": "时间戳、日期转换器",
     "description": "在线时间戳和日期转换",
@@ -97,20 +110,12 @@
     "pick_date": "日期选择：",
     "convert": "转换"
   },
-  "worksPage": {
-    "title": "在线编辑、格式化和美化非标准JSON工具，只需将其粘贴到下面即可:",
-    "description": "在线编辑、格式化和美化非标准JSON工具。",
-    "format": "格式化",
-    "compact": "压缩",
-    "h1Text": "SoraWebui - 作品",
-    "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",
-    "generateNew": "生成新视频"
-  },
   "jsonEditorPage": {
     "title": "在线格式化JSON工具",
     "description": "在线编辑、格式化和美化非标准JSON工具。",
     "keywords": "json格式化,格式化json",
     "h1": "JSON 格式化",
+    "h1_desc": "在线格式化JSON，JSON文件，JSON响应。",
     "format": "格式化",
     "compact": "压缩",
     "upload": "上传",
@@ -121,16 +126,29 @@
     "problem": "问题",
     "h1Text": "SoraWebui - 作品",
     "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",
-    "generateNew": "生成新视频"
-  },
-  "playgroundPage": {
-    "title": "比较JSON 或文本的在线比较工具，只需将其粘贴到下面即可：",
-    "description": "比较 JSON 或任何文本的在线比较工具。",
-    "format": "格式化",
-    "compact": "压缩",
-    "h1Text": "SoraWebui - playground",
-    "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",
-    "moreWorks": "更多作品"
+    "generateNew": "生成新视频",
+    "h2": "JSON 格式化工具",
+    "h2_desc": "JSON 格式化工具是一款可以帮助您将 JSON 数据格式化为清晰可读形式的工具。它可以用来格式化 JSON 字符串和 JSON 文件。",
+    "h2_h3": "特性：",
+    "h2_h3_l1": "语法高亮：JSON 格式化工具使用语法高亮功能，让 JSON 数据更易于阅读。",
+    "h2_h3_l2": "美化打印：JSON 格式化工具可以美化打印 JSON 数据，让您更容易查看数据的结构。",
+    "h2_h3_l3": "验证：JSON 格式化工具可以验证 JSON 数据，以确保其为有效的 JSON。",
+    "h2_h3_l4": "最小化：JSON 格式化工具可以最小化 JSON 数据，从而减小其大小。",
+    "h2_h3_l5": "JSON 文件格式：JSON 格式化工具支持上传 JSON 文件进行格式化并下载已格式化的 JSON 文件。",
+    "h2_h3_1": "如何使用 JSON 格式化工具？",
+    "h2_h3_1_l1": "将 JSON 数据复制并粘贴到输入字段中或上传一个 JSON 文件。",
+    "h2_h3_1_l2": "点击",
+    "h2_h3_1_l2_1": "格式化 ",
+    "h2_h3_1_l2_2": "按钮。",
+    "h2_h3_1_l3": "格式化后的 JSON 数据将显示在文本框中。",
+    "h2_h3_2": "JSON 格式化示例",
+    "h2_1": "JSON 验证工具",
+    "h2_1_desc": "JSON 验证工具是一款可以帮助您验证 JSON 数据，以确保其为有效 JSON 的工具。它可以用来验证 JSON 字符串和 JSON 文件。",
+    "h2_1_h3": "特性：",
+    "h2_1_h3_l1": "语法验证：JSON 验证工具会检查 JSON 数据的语法，以确保其为有效的 JSON。",
+    "h2_1_h3_l2": "模式验证：JSON 验证工具还可以根据 JSON 模式来验证 JSON 数据。",
+    "h2_1_h3_l3": "错误报告：如果 JSON 数据无效，JSON 验证工具会提供详细的错误信息。",
+    "h2_1_h3_l4": "JSON 文件验证：JSON 格式化工具支持上传 JSON 文件进行验证并下载经过验证的 JSON 文件。"
   },
   "jsonComparePage": {
     "title": "比较JSON 或文本的在线比较工具",

@@ -20,6 +20,27 @@
     "fakeSoraTip": "FakeSora is designed to simulate the yet-to-be-released OpenAI Sora API.",
     "soraTip": "OpenAI has not released Sora's API yet."
   },
+  "footer": {
+    "lang": "en",
+    "language": "English",
+    "languageInChineseSimple": "英语",
+    "title": "Format json, validate json, compare json online.",
+    "description": "Format JSON, format JSON file, format JSON response online. Upload a JSON file, json file format in seconds, then download your formatted json file",
+    "h1": "Online edit,format,validate,beautify tool for json. just  paste it below:",
+    "keywords": "online json formatter,json editor,json format,format json,online json format,json format checker,json formatter and validator,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
+    "loadingText": "JSON Formatter Loading...",
+    "generateText": "Generating...",
+    "buttonText": "Generate",
+    "placeholderText": "Type or paste text here...",
+    "pDescription": "Online edit,format,validate,beautify tool for json. just  paste it below:",
+    "soraVideoExample": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
+    "prompt": "Online compare tool for json or any text. just paste it below:",
+    "soraWorksTitle": "Works",
+    "soraResultTitle": "Result",
+    "moreExample": "more example video",
+    "fakeSoraTip": "FakeSora is designed to simulate the yet-to-be-released OpenAI Sora API.",
+    "soraTip": "OpenAI has not released Sora's API yet."
+  },
   "privacyPolicy": {
     "title": "Privacy Policy ｜ ",
     "description": "",
@@ -79,15 +100,6 @@
     "h2_2_p3d": "Hierarchical structure: JSON data can be organized into hierarchical structures using objects and arrays. ",
     "h2_2_p3e": "Lightweight: JSON is a compact data format that is efficient to transmit and store. "
   },
-  "videosPage": {
-    "title": "Timestamp and date converter",
-    "description": "online timestamp and date converter",
-    "h1": "Timestamp Converter",
-    "h2_1": "Convert timestamp to date",
-    "h2_2": "Convert date to timestamp",
-    "pick_date": "Pick date:",
-    "convert": "convert"
-  },
   "timestampPage": {
     "title": "Timestamp and date converter",
     "description": "online timestamp and date converter",
@@ -98,20 +110,12 @@
     "pick_date": "Pick date:",
     "convert": "Convert"
   },
-  "worksPage": {
-    "title": "Online edit,format,beautify tool for non-standard json",
-    "description": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
-    "format": "format",
-    "compact": "compact",
-    "h1Text": "SoraWebui - Works",
-    "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
-    "generateNew": "Generate New"
-  },
   "jsonEditorPage": {
     "title": "JSON Formatter: format, validate, compare json online",
     "description": "Format JSON, format JSON file, format JSON response online. Upload a JSON file, json file format in seconds, then download your formatted json file.",
     "keywords": "json editor,json format,format json,online json format,json format checker,pretty format json,json checker format,json pretty format,formatted json,verify json format,json text formatting,json formatting online,json to string,json format validation",
     "h1": "JSON Formatter Online",
+    "h1_desc": "Format JSON, JSON file, JSON response online.",
     "format": "Format",
     "compact": "Compact",
     "upload": "Upload",
@@ -122,17 +126,30 @@
     "problem": "Problem",
     "h1Text": "SoraWebui - Works",
     "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
-    "generateNew": "Generate New"
-  },
-  "playgroundPage": {
-    "title": "Online compare tool for json or other text",
-    "description": "Online compare tool for json or other text. just paste it below:",
-    "format": "format",
-    "compact": "compact",
-    "description": "Generate video simply. | sorawebui.com",
-    "h1Text": "SoraWebui - playground",
-    "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
-    "moreWorks": "More Works"
+    "generateNew": "Generate New",
+    "h2": "JSON Formatter",
+    "h2_desc": "JSON Formatter is a tool that helps you format JSON data in a clear and readable way. It can be used to format both JSON and JSON file.",
+    "h2_h3": "Features",
+    "h2_h3_l1": "Syntax highlighting: JSON Formatter uses syntax highlighting to make JSON data easier to read.",
+    "h2_h3_l2": "Pretty printing: JSON Formatter can pretty-print JSON data, making it easier to see the structure of the data.",
+    "h2_h3_l3": "Validation: JSON Formatter can validate JSON data to make sure that it's valid JSON.",
+    "h2_h3_l4": "Minification: JSON Formatter can minify JSON data, reducing its size.",
+    "h2_h3_l5": "JSON file format: JSON Formatter support upload a JSON file to format and download formatted json file.",
+    "h2_h3_1": "How to use JSON Formatter ?",
+    "h2_h3_1_l1": "Copy and paste JSON data into the input field or upload a json file.",
+    "h2_h3_1_l2": "Click the",
+    "h2_h3_1_l2_1": "Format ",
+    "h2_h3_1_l2_2": "button.",
+    "h2_h3_1_l3": "The formatted JSON data will be displayed in the text box.",
+    "h2_h3_2": "JSON Format Examples",
+    "h2_1": "JSON Validator",
+    "h2_1_desc": "JSON Validator is a tool that helps you validate JSON data to make sure that it's valid JSON. It can be used to validate both JSON and JSON file.",
+    "h2_1_h3": "Features",
+    "h2_1_h3_l1": "Syntax validation: JSON Validator checks the syntax of JSON data to make sure that it's valid JSON.",
+    "h2_1_h3_l2": "Schema validation: JSON Validator can also validate JSON data against a JSON schema.",
+    "h2_1_h3_l3": "Error reporting: JSON Validator provides detailed error messages if JSON data is not valid.",
+    "h2_1_h3_l4": "JSON file validation: JSON Formatter support upload a JSON file to validate and download validated json file."
+
   },
   "jsonComparePage": {
     "title": "Compare json online",

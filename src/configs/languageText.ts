@@ -21,6 +21,27 @@ export const getIndexLanguageText = async () => {
   };
 }
 
+export const getFooterLanguageText = async () => {
+  const tIndex = await getTranslations('footer');
+  return {
+    title: tIndex('title'),
+    description: tIndex('description'),
+    keywords: tIndex('keywords'),
+    loadingText: tIndex('loadingText'),
+    generateText: tIndex('generateText'),
+    buttonText: tIndex('buttonText'),
+    placeholderText: tIndex('placeholderText'),
+    h1: tIndex('h1'),
+    pDescription: tIndex('pDescription'),
+    soraVideoExample: tIndex('soraVideoExample'),
+    prompt: tIndex('prompt'),
+    moreExample: tIndex('moreExample'),
+    soraResultTitle: tIndex('soraResultTitle'),
+    fakeSoraTip: tIndex('fakeSoraTip'),
+    soraTip: tIndex('soraTip'),
+  };
+}
+
 
 export const getQuestionLanguageText = async () => {
   const tIndexQuestion = await getTranslations('indexQuestion');
@@ -42,50 +63,47 @@ export const getQuestionLanguageText = async () => {
   }
 }
 
-
-export const getWorksPageLanguageText = async () => {
-  const tWorks = await getTranslations('worksPage');
-  return {
-    title: tWorks('title'),
-    description: tWorks('description'),
-    format: tWorks('format'),
-    compact: tWorks('compact'),
-    h1Text: tWorks('h1Text'),
-    pDescription: tWorks('pDescription'),
-    generateNew: tWorks('generateNew'),
-  }
-}
-
 export const getJsonEditorPageLanguageText = async () => {
-  const tWorks = await getTranslations('jsonEditorPage');
+  const tJsonEditor = await getTranslations('jsonEditorPage');
   return {
-    title: tWorks('title'),
-    description: tWorks('description'),
-    keywords: tWorks('keywords'),
-    h1: tWorks('h1'),
-    format: tWorks('format'),
-    compact: tWorks('compact'),
-    "upload": tWorks('upload'),
-    "download": tWorks('download'),
-    "clear": tWorks('clear'),
-    "auto_format": tWorks('auto_format'),
-    "compare": tWorks('compare'),
-    "problem": tWorks('problem'),
-    h1Text: tWorks('h1Text'),
-    pDescription: tWorks('pDescription'),
-    generateNew: tWorks('generateNew'),
-  }
-}
-
-export const getVideosPageLanguageText = async () => {
-  const tVideosPage = await getTranslations('videosPage');
-  return {
-    title: tVideosPage('title'),
-    description: tVideosPage('description'),
-    h1: tVideosPage('h1'),
-    h2_1: tVideosPage('h2_1'),
-    h2_2: tVideosPage('h2_2'),
-    pick_date: tVideosPage('pick_date'),
+    title: tJsonEditor('title'),
+    description: tJsonEditor('description'),
+    keywords: tJsonEditor('keywords'),
+    h1: tJsonEditor('h1'),
+    h1_desc: tJsonEditor('h1_desc'),
+    format: tJsonEditor('format'),
+    compact: tJsonEditor('compact'),
+    upload: tJsonEditor('upload'),
+    download: tJsonEditor('download'),
+    clear: tJsonEditor('clear'),
+    auto_format: tJsonEditor('auto_format'),
+    compare: tJsonEditor('compare'),
+    problem: tJsonEditor('problem'),
+    h1Text: tJsonEditor('h1Text'),
+    pDescription: tJsonEditor('pDescription'),
+    generateNew: tJsonEditor('generateNew'),
+    h2: tJsonEditor('h2'),
+    h2_desc: tJsonEditor('h2_desc'),
+    h2_h3: tJsonEditor('h2_h3'),
+    h2_h3_l1: tJsonEditor('h2_h3_l1'),
+    h2_h3_l2: tJsonEditor('h2_h3_l2'),
+    h2_h3_l3: tJsonEditor('h2_h3_l3'),
+    h2_h3_l4: tJsonEditor('h2_h3_l4'),
+    h2_h3_l5: tJsonEditor('h2_h3_l5'),
+    h2_h3_1: tJsonEditor('h2_h3_1'),
+    h2_h3_1_l1: tJsonEditor('h2_h3_1_l1'),
+    h2_h3_1_l2: tJsonEditor('h2_h3_1_l2'),
+    h2_h3_1_l2_1: tJsonEditor('h2_h3_1_l2_1'),
+    h2_h3_1_l2_2: tJsonEditor('h2_h3_1_l2_2'),
+    h2_h3_1_l3: tJsonEditor('h2_h3_1_l3'),
+    h2_h3_2: tJsonEditor('h2_h3_2'),
+    h2_1: tJsonEditor('h2_1'),
+    h2_1_desc: tJsonEditor('h2_1_desc'),
+    h2_1_h3: tJsonEditor('h2_1_h3'),
+    h2_1_h3_l1: tJsonEditor('h2_1_h3_l1'),
+    h2_1_h3_l2: tJsonEditor('h2_1_h3_l2'),
+    h2_1_h3_l3: tJsonEditor('h2_1_h3_l3'),
+    h2_1_h3_l4: tJsonEditor('h2_1_h3_l4')
   }
 }
 
@@ -154,18 +172,6 @@ export const getTermsOfServiceLanguageText = async () => {
   }
 }
 
-export const getPlaygroundPageLanguageText = async () => {
-  const tPlaygroundPage = await getTranslations('playgroundPage');
-  return {
-    title: tPlaygroundPage('title'),
-    format: tPlaygroundPage('format'),
-    compact: tPlaygroundPage('compact'),
-    description: tPlaygroundPage('description'),
-    h1Text: tPlaygroundPage('h1Text'),
-    pDescription: tPlaygroundPage('pDescription'),
-    moreWorks: tPlaygroundPage('moreWorks'),
-  }
-}
 
 export const getJsonComparePageLanguageText = async () => {
   const tPlaygroundPage = await getTranslations('jsonComparePage');

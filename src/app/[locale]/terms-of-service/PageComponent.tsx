@@ -6,6 +6,7 @@ const PageComponent = ({
                          locale = '',
                          termsOfServiceLanguageText,
                          indexLanguageText,
+                         footerLanguageText
                        }) => {
 
   return (
@@ -55,6 +56,7 @@ const PageComponent = ({
       <Footer
         locale={locale}
         description={indexLanguageText.description}
+        footerText={footerLanguageText}
       />
     </>
   )

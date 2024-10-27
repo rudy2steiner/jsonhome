@@ -12,10 +12,10 @@ import { languages,getLanguageByLang,getEditorLocale} from "~/config";
 import {Editor,loader,useMonaco,DiffEditor} from "@monaco-editor/react";
 
 loader.config({ paths: { vs: "/vs" } });
-
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
+                         footerLanguageText,
                          jsonCompareText
                        }) => {
   const lang = getEditorLocale(locale);
@@ -62,14 +62,12 @@ const PageComponent = ({
         </div>
       </div>
     </div>
-
     <Footer
         locale={locale}
         description={indexLanguageText.description}
+        footerText={footerLanguageText}
     />
     </>
   )
-
-
 }
 export default PageComponent
