@@ -100,33 +100,15 @@
     "h2_2_p3d": "Hierarchical structure: JSON data can be organized into hierarchical structures using objects and arrays. ",
     "h2_2_p3e": "Lightweight: JSON is a compact data format that is efficient to transmit and store. "
   },
-  "videosPage": {
-    "title": "Timestamp and date converter",
-    "description": "online timestamp and date converter",
-    "h1": "Timestamp Converter",
-    "h2": "Convert timestamp to date",
-    "h2_1": "Convert date to timestamp",
-    "pick_date": "Pick date:",
-    "convert": "convert"
-  },
   "timestampPage": {
     "title": "Timestamp and date converter",
     "description": "online timestamp and date converter",
     "keywords": "convert from unix time,timestamp converter",
     "h1": "Timestamp Converter",
-    "h2": "Convert timestamp to date",
-    "h2_1": "Convert date to timestamp",
+    "h2_1": "Convert timestamp to date",
+    "h2_2": "Convert date to timestamp",
     "pick_date": "Pick date:",
     "convert": "Convert"
-  },
-  "worksPage": {
-    "title": "Online edit,format,beautify tool for non-standard json",
-    "description": "Online edit,format,beautify tool for non-standard json. just  paste it below:",
-    "format": "format",
-    "compact": "compact",
-    "h1Text": "SoraWebui - Works",
-    "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
-    "generateNew": "Generate New"
   },
   "jsonEditorPage": {
     "title": "JSON Formatter: format, validate, compare json online",
@@ -150,7 +132,7 @@
     "h2_h3": "Features",
     "h2_h3_l1": "Syntax highlighting: JSON Formatter uses syntax highlighting to make JSON data easier to read.",
     "h2_h3_l2": "Pretty printing: JSON Formatter can pretty-print JSON data, making it easier to see the structure of the data.",
-    "h2_h3_l3": "Validation: JSON Formatter can validate JSON data to make sure that it is valid JSON.",
+    "h2_h3_l3": "Validation: JSON Formatter can validate JSON data to make sure that it's valid JSON.",
     "h2_h3_l4": "Minification: JSON Formatter can minify JSON data, reducing its size.",
     "h2_h3_l5": "JSON file format: JSON Formatter support upload a JSON file to format and download formatted json file.",
     "h2_h3_1": "How to use JSON Formatter ?",
@@ -158,26 +140,16 @@
     "h2_h3_1_l2": "Click the",
     "h2_h3_1_l2_1": "Format ",
     "h2_h3_1_l2_2": "button.",
-    "h2_h3_1_l3": "The formatted JSON data will be displayed in the output field.",
+    "h2_h3_1_l3": "The formatted JSON data will be displayed in the text box.",
     "h2_h3_2": "JSON Format Examples",
     "h2_1": "JSON Validator",
-    "h2_1_desc": "JSON Validator is a tool that helps you validate JSON data to make sure that it is valid JSON. It can be used to validate both JSON and JSON file.",
+    "h2_1_desc": "JSON Validator is a tool that helps you validate JSON data to make sure that it's valid JSON. It can be used to validate both JSON and JSON file.",
     "h2_1_h3": "Features",
-    "h2_1_h3_l1": "Syntax validation: JSON Validator checks the syntax of JSON data to make sure that it is valid JSON.",
+    "h2_1_h3_l1": "Syntax validation: JSON Validator checks the syntax of JSON data to make sure that it's valid JSON.",
     "h2_1_h3_l2": "Schema validation: JSON Validator can also validate JSON data against a JSON schema.",
     "h2_1_h3_l3": "Error reporting: JSON Validator provides detailed error messages if JSON data is not valid.",
     "h2_1_h3_l4": "JSON file validation: JSON Formatter support upload a JSON file to validate and download validated json file."
 
-  },
-  "playgroundPage": {
-    "title": "Online compare tool for json or other text",
-    "description": "Online compare tool for json or other text. just paste it below:",
-    "format": "format",
-    "compact": "compact",
-    "description": "Generate video simply. | sorawebui.com",
-    "h1Text": "SoraWebui - playground",
-    "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
-    "moreWorks": "More Works"
   },
   "jsonComparePage": {
     "title": "Compare json online",

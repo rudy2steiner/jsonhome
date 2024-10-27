@@ -100,14 +100,6 @@
     "h2_2_p3d": "层次结构：JSON 数据可以使用对象和数组组织成层次结构。",
     "h2_2_p3e": "轻量级：JSON 是一种紧凑的数据格式，传输和存储都非常有效。"
   },
-  "videosPage": {
-    "title": "时间戳、日期转换器",
-    "description": "Sora 生成的视频，Sora 生成的最新视频。 | sorawebui.com",
-    "h1": "时间戳转换器",
-    "h2_1": "时间戳转日期",
-    "h2_2": "日期转时间戳",
-    "pick_date": "日期选择："
-  },
   "timestampPage": {
     "title": "时间戳、日期转换器",
     "description": "在线时间戳和日期转换",
@@ -117,15 +109,6 @@
     "h2_2": "日期转时间戳",
     "pick_date": "日期选择：",
     "convert": "转换"
-  },
-  "worksPage": {
-    "title": "在线编辑、格式化和美化非标准JSON工具，只需将其粘贴到下面即可:",
-    "description": "在线编辑、格式化和美化非标准JSON工具。",
-    "format": "格式化",
-    "compact": "压缩",
-    "h1Text": "SoraWebui - 作品",
-    "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",
-    "generateNew": "生成新视频"
   },
   "jsonEditorPage": {
     "title": "在线格式化JSON工具",
@@ -157,7 +140,7 @@
     "h2_h3_1_l2": "点击",
     "h2_h3_1_l2_1": "格式化 ",
     "h2_h3_1_l2_2": "按钮。",
-    "h2_h3_1_l3": "格式化后的 JSON 数据将显示在输出字段中。",
+    "h2_h3_1_l3": "格式化后的 JSON 数据将显示在文本框中。",
     "h2_h3_2": "JSON 格式化示例",
     "h2_1": "JSON 验证工具",
     "h2_1_desc": "JSON 验证工具是一款可以帮助您验证 JSON 数据，以确保其为有效 JSON 的工具。它可以用来验证 JSON 字符串和 JSON 文件。",
@@ -166,15 +149,6 @@
     "h2_1_h3_l2": "模式验证：JSON 验证工具还可以根据 JSON 模式来验证 JSON 数据。",
     "h2_1_h3_l3": "错误报告：如果 JSON 数据无效，JSON 验证工具会提供详细的错误信息。",
     "h2_1_h3_l4": "JSON 文件验证：JSON 格式化工具支持上传 JSON 文件进行验证并下载经过验证的 JSON 文件。"
-  },
-  "playgroundPage": {
-    "title": "比较JSON 或文本的在线比较工具，只需将其粘贴到下面即可：",
-    "description": "比较 JSON 或任何文本的在线比较工具。",
-    "format": "格式化",
-    "compact": "压缩",
-    "h1Text": "SoraWebui - playground",
-    "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",
-    "moreWorks": "更多作品"
   },
   "jsonComparePage": {
     "title": "比较JSON 或文本的在线比较工具",

@@ -63,20 +63,6 @@ export const getQuestionLanguageText = async () => {
   }
 }
 
-
-export const getWorksPageLanguageText = async () => {
-  const tWorks = await getTranslations('worksPage');
-  return {
-    title: tWorks('title'),
-    description: tWorks('description'),
-    format: tWorks('format'),
-    compact: tWorks('compact'),
-    h1Text: tWorks('h1Text'),
-    pDescription: tWorks('pDescription'),
-    generateNew: tWorks('generateNew'),
-  }
-}
-
 export const getJsonEditorPageLanguageText = async () => {
   const tJsonEditor = await getTranslations('jsonEditorPage');
   return {
@@ -198,18 +184,6 @@ export const getTermsOfServiceLanguageText = async () => {
   }
 }
 
-export const getPlaygroundPageLanguageText = async () => {
-  const tPlaygroundPage = await getTranslations('playgroundPage');
-  return {
-    title: tPlaygroundPage('title'),
-    format: tPlaygroundPage('format'),
-    compact: tPlaygroundPage('compact'),
-    description: tPlaygroundPage('description'),
-    h1Text: tPlaygroundPage('h1Text'),
-    pDescription: tPlaygroundPage('pDescription'),
-    moreWorks: tPlaygroundPage('moreWorks'),
-  }
-}
 
 export const getJsonComparePageLanguageText = async () => {
   const tPlaygroundPage = await getTranslations('jsonComparePage');

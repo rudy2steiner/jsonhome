@@ -9,7 +9,7 @@ const navigation = {
   ],
   legal: [
     {name: 'Privacy Policy', href: '/'},
-    {name: 'Terms & Conditions', href: '/'},
+    {name: 'Terms&Conditions', href: '/'},
   ]
 }
 
@@ -35,6 +35,10 @@ export default function Footer({
             <p className="text-sm text-white">
               {footerText.title}
             </p>
+            <div className="text-sm text-white">
+                <a href="/" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">English</a>
+                <a href="/zh" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">简体中文</a>
+          </div>
           </div>
           <div className="mt-2 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
