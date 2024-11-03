@@ -50,9 +50,18 @@ export default function Footer({
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <div className="text-sm font-semibold leading-6 text-white"></div>
+                <div className="text-sm font-semibold leading-6 text-white">About</div>
                 <ul role="list" className="mt-6 space-y-4">
-
+                    <li>
+                        <Link href='https://devlist.carrd.co' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                        Devlist Carrd
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='https://dev.to/devlist' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                        Devlist Dev.to
+                        </Link>
+                    </li>
                 </ul>
               </div>
             </div>
