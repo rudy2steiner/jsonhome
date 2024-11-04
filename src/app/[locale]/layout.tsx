@@ -44,6 +44,7 @@ export default async function LocaleLayout({
                   `,
         }}
       />
+    <script defer data-domain="www.jsonhome.com" src="https://plausible.io/js/script.js"></script>
     </head>
     <body suppressHydrationWarning={true} className={clsx(inter.className, 'flex h-100vh flex-col bg-[#FAFAF9]')}>
     <CommonProvider>
