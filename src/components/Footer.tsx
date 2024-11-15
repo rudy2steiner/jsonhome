@@ -37,7 +37,7 @@ export default function Footer({
             <p className="text-sm text-white">
               {footerText.title}
             </p>
-            <div className="text-sm text-white">
+          <div className="text-sm text-white">
                 <a href="/" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">English</a>
                 <a href="/zh" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">简体中文</a>
                 <a href="/pt" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">Português</a>
@@ -52,16 +52,23 @@ export default function Footer({
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <div className="text-sm font-semibold leading-6 text-white">About</div>
+                <div className="text-sm font-semibold leading-6 text-white">Community</div>
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
-                        <Link href='https://devlist.carrd.co' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                        <Link href='https://devlist.carrd.co' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]" target='_blank'>
                         Devlist Carrd
                         </Link>
                     </li>
                     <li>
-                        <Link href='https://dev.to/devlist' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                        <Link href='https://dev.to/devlist' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]" target='_blank'>
                         Devlist Dev.to
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='https://www.producthunt.com/posts/jsonhome?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jsonhome'
+                         target='_blank'
+                         className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                         Product Hunt
                         </Link>
                     </li>
                 </ul>
