@@ -55,17 +55,18 @@ export default function Footer({
                 <div className="text-sm font-semibold leading-6 text-white">Community</div>
                 <ul role="list" className="mt-6 space-y-4">
                     <li>
-                        <Link href='https://devlist.carrd.co' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                        <Link href='https://devlist.carrd.co' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]" target='_blank'>
                         Devlist Carrd
                         </Link>
                     </li>
                     <li>
-                        <Link href='https://dev.to/devlist' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                        <Link href='https://dev.to/devlist' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]" target='_blank'>
                         Devlist Dev.to
                         </Link>
                     </li>
                     <li>
                         <Link href='https://www.producthunt.com/posts/jsonhome?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jsonhome'
+                         target='_blank'
                          className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
                          Product Hunt
                         </Link>
