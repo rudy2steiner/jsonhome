@@ -43,11 +43,6 @@ export default function Footer({
                 <a href="/pt" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">Português</a>
                 <a href="/de" className="inline-block font-normal text-white transition hover:text-blue-600 sm:pr-1 lg:pr-6 py-1.5 sm:py-2 pr-1">Deutsch</a>
           </div>
-          <a href="https://www.producthunt.com/posts/jsonhome?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jsonhome" target="_blank">
-            <img className="w-250px h-54px" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=593293&theme=light" alt="jsonhome - Format&#0044;&#0032;validate&#0044;&#0032;compare&#0032;json&#0032;online | Product Hunt"
-          crossOrigin="anonymous" referrerPolicy="no-referrer" />
-          </a>
-
           </div>
           <div className="mt-2 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
@@ -67,6 +62,12 @@ export default function Footer({
                     <li>
                         <Link href='https://dev.to/devlist' className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
                         Devlist Dev.to
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='https://www.producthunt.com/posts/jsonhome?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jsonhome'
+                         className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                         Product Hunt
                         </Link>
                     </li>
                 </ul>
