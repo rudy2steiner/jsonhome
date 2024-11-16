@@ -5,9 +5,9 @@ const navigation = {
   product: [
     {name: 'JSON Home', href: 'https://jsonhome.com'},
     {name: 'Compare JSON', href: 'https://www.comparejson.com'},
+    {name: 'JSON Pretty', href: 'https://www.jsonpretty.co'},
+    {name: 'JSON To CSV', href: 'https://www.jsoncsv.org'},
     {name: 'Photo Maker', href: 'https://photomaker.co'},
-    {name: 'JSON Prettify', href: 'https://jsonprettify.org'},
-
   ],
   legal: [
     {name: 'Privacy Policy', href: '/'},
