@@ -41,7 +41,9 @@ const PageComponent = ({
                          locale = '',
                          indexLanguageText,
                          footerLanguageText,
-                         jsonEditorText
+                         jsonEditorText,
+                         initVideoList = [],
+                         questionText
                        }) => {
 
   const editorRef = useRef(null);
