@@ -134,7 +134,7 @@ const PageComponent = ({
            page={"/json-formatter"}
          />
        <Header locale={locale} page={"json-formatter"} indexLanguageText={indexLanguageText}/>
-       <p className="text-black text-center text-xl mb-3 mt-10">{jsonEditorText.title}</p>
+       {/* <p className="text-black text-center text-xl mb-3 mt-10">{jsonEditorText.title}</p> */}
        <div className="mx-auto w-[80%] h-[100%] border-blue-200 border-2 mb-2 mt-3">
          <Stack styles={stackStyles}>
             <Stack.Item>
@@ -176,45 +176,169 @@ const PageComponent = ({
              </Stack>
          </Stack>
        </div>
-       <section >
+       <section className="bg-white dark:bg-gray-900">
          <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-             <div className="max-w-screen-md mb-2 lg:mb-5">
-                 <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{jsonEditorText.h1}</h1>
-                 <p className="text-gray-500 sm:text-xl dark:text-gray-400">{jsonEditorText.h1_desc}</p>
+             {/* Header */}
+             <div className="max-w-4xl mb-12 lg:mb-16 mx-auto">
+                 <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold text-gray-900 dark:text-white leading-tight text-center">
+                     {jsonEditorText.h1 || ''}
+                 </h1>
+                 <p className="text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-left">
+                     {jsonEditorText.h1_desc || ''}
+                 </p>
              </div>
-             <div className="space-y-8 ">
-                 <div>
-                     <h2 className="mb-2 text-xl font-bold dark:text-white">{jsonEditorText.h2}</h2>
-                     <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.h2_desc}</p>
-                     <h3 className="font-inter mt-4 font-bold text-base dark:text-white ml-5">{jsonEditorText.h2_h3}</h3>
-                     <ul className="list-inside list-disc ">
-                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l1}</li>
-                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l2}</li>
-                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l3}</li>
-                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l4}</li>
-                          <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_l5}</li>
-                     </ul>
-                      <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">{jsonEditorText.h2_h3_1}</h3>
-                      <ul className="list-inside list-disc">
-                        <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_1_l1}</li>
-                        <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_1_l2} <b className="font-bold">{jsonEditorText.h2_h3_1_l2_1}</b>{jsonEditorText.h2_h3_1_l2_2} </li>
-                        <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_h3_1_l3}</li>
-                     </ul>
-                     <h3 className="mb-2 text-base font-bold dark:text-white mt-2 ml-5">{jsonEditorText.h2_h3_2}</h3>
-                     <Editor height='100px' language="json"  defaultValue='{"name": "John Doe", "age": 30, "occupation": "Software engineer"}'
-                             onMount={handleExampleEditorDidMount}
-                     />
+
+             {/* Features Section */}
+             <div className="mb-16">
+                 <div className="text-center mb-8">
+                     <h2 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white">{jsonEditorText.features_title || ''}</h2>
+                     <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">{jsonEditorText.features_desc || ''}</p>
                  </div>
-                 <div>
-                     <h2 className="mb-2 text-xl font-bold dark:text-white">{jsonEditorText.h2_1}</h2>
-                     <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.h2_1_desc}</p>
-                     <p className="font-inter mt-4 text-base font-bold   ml-5">{jsonEditorText.h2_1_h3}</p>
-                      <ul className="list-inside list-disc ">
-                           <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l1}</li>
-                           <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l2}</li>
-                           <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l3}</li>
-                           <li className="font-inter text-base font-light text-gray-500 ml-10">{jsonEditorText.h2_1_h3_l4}</li>
-                      </ul>
+                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{jsonEditorText.feature_1_title || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.feature_1_desc || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{jsonEditorText.feature_2_title || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.feature_2_desc || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{jsonEditorText.feature_3_title || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.feature_3_desc || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{jsonEditorText.feature_4_title || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.feature_4_desc || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{jsonEditorText.feature_5_title || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.feature_5_desc || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{jsonEditorText.feature_6_title || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.feature_6_desc || ''}</p>
+                     </div>
+                 </div>
+             </div>
+
+             {/* How It Works Section */}
+             <div className="mb-16">
+                 <div className="text-center mb-8">
+                     <h2 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white">{jsonEditorText.howItWorks_title || ''}</h2>
+                     <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">{jsonEditorText.howItWorks_desc || ''}</p>
+                 </div>
+                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                     <div className="text-center p-6">
+                         <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-blue-100 dark:bg-blue-900 rounded-full">
+                             <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">1</span>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.howItWorks_step1 || ''}</p>
+                     </div>
+                     <div className="text-center p-6">
+                         <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-blue-100 dark:bg-blue-900 rounded-full">
+                             <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">2</span>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.howItWorks_step2 || ''}</p>
+                     </div>
+                     <div className="text-center p-6">
+                         <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-blue-100 dark:bg-blue-900 rounded-full">
+                             <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">3</span>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.howItWorks_step3 || ''}</p>
+                     </div>
+                     <div className="text-center p-6">
+                         <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-blue-100 dark:bg-blue-900 rounded-full">
+                             <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">4</span>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.howItWorks_step4 || ''}</p>
+                     </div>
+                 </div>
+             </div>
+
+             {/* Testimonials Section */}
+             <div className="mb-16">
+                 <div className="text-center mb-8">
+                     <h2 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white">{jsonEditorText.testimonials_title || ''}</h2>
+                 </div>
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <div className="flex items-center mb-4">
+                             <div className="flex-shrink-0">
+                                 <img 
+                                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" 
+                                     alt={jsonEditorText.testimonial_1_name || 'User'}
+                                     className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-700"
+                                 />
+                             </div>
+                             <div className="ml-4">
+                                 <div className="font-bold text-gray-900 dark:text-white">{jsonEditorText.testimonial_1_name || ''}</div>
+                                 <div className="text-sm text-gray-500 dark:text-gray-400">{jsonEditorText.testimonial_1_role || ''}</div>
+                             </div>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400 italic">"{jsonEditorText.testimonial_1_text || ''}"</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <div className="flex items-center mb-4">
+                             <div className="flex-shrink-0">
+                                 <img 
+                                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" 
+                                     alt={jsonEditorText.testimonial_2_name || 'User'}
+                                     className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-700"
+                                 />
+                             </div>
+                             <div className="ml-4">
+                                 <div className="font-bold text-gray-900 dark:text-white">{jsonEditorText.testimonial_2_name || ''}</div>
+                                 <div className="text-sm text-gray-500 dark:text-gray-400">{jsonEditorText.testimonial_2_role || ''}</div>
+                             </div>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400 italic">"{jsonEditorText.testimonial_2_text || ''}"</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <div className="flex items-center mb-4">
+                             <div className="flex-shrink-0">
+                                 <img 
+                                     src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" 
+                                     alt={jsonEditorText.testimonial_3_name || 'User'}
+                                     className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-700"
+                                 />
+                             </div>
+                             <div className="ml-4">
+                                 <div className="font-bold text-gray-900 dark:text-white">{jsonEditorText.testimonial_3_name || ''}</div>
+                                 <div className="text-sm text-gray-500 dark:text-gray-400">{jsonEditorText.testimonial_3_role || ''}</div>
+                             </div>
+                         </div>
+                         <p className="text-gray-500 dark:text-gray-400 italic">"{jsonEditorText.testimonial_3_text || ''}"</p>
+                     </div>
+                 </div>
+             </div>
+
+             {/* FAQ Section */}
+             <div className="mb-8">
+                 <div className="text-center mb-8">
+                     <h2 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white">{jsonEditorText.faq_title || ''}</h2>
+                 </div>
+                 <div className="max-w-3xl mx-auto space-y-4">
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">{jsonEditorText.faq_q1 || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.faq_a1 || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">{jsonEditorText.faq_q2 || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.faq_a2 || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">{jsonEditorText.faq_q3 || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.faq_a3 || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">{jsonEditorText.faq_q4 || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.faq_a4 || ''}</p>
+                     </div>
+                     <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                         <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">{jsonEditorText.faq_q5 || ''}</h3>
+                         <p className="text-gray-500 dark:text-gray-400">{jsonEditorText.faq_a5 || ''}</p>
+                     </div>
                  </div>
              </div>
          </div>

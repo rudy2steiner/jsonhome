@@ -103,7 +103,52 @@ export const getJsonEditorPageLanguageText = async () => {
     h2_1_h3_l1: tJsonEditor('h2_1_h3_l1'),
     h2_1_h3_l2: tJsonEditor('h2_1_h3_l2'),
     h2_1_h3_l3: tJsonEditor('h2_1_h3_l3'),
-    h2_1_h3_l4: tJsonEditor('h2_1_h3_l4')
+    h2_1_h3_l4: tJsonEditor('h2_1_h3_l4'),
+    // Features section
+    features_title: tJsonEditor('features_title'),
+    features_desc: tJsonEditor('features_desc'),
+    feature_1_title: tJsonEditor('feature_1_title'),
+    feature_1_desc: tJsonEditor('feature_1_desc'),
+    feature_2_title: tJsonEditor('feature_2_title'),
+    feature_2_desc: tJsonEditor('feature_2_desc'),
+    feature_3_title: tJsonEditor('feature_3_title'),
+    feature_3_desc: tJsonEditor('feature_3_desc'),
+    feature_4_title: tJsonEditor('feature_4_title'),
+    feature_4_desc: tJsonEditor('feature_4_desc'),
+    feature_5_title: tJsonEditor('feature_5_title'),
+    feature_5_desc: tJsonEditor('feature_5_desc'),
+    feature_6_title: tJsonEditor('feature_6_title'),
+    feature_6_desc: tJsonEditor('feature_6_desc'),
+    // How It Works section
+    howItWorks_title: tJsonEditor('howItWorks_title'),
+    howItWorks_desc: tJsonEditor('howItWorks_desc'),
+    howItWorks_step1: tJsonEditor('howItWorks_step1'),
+    howItWorks_step2: tJsonEditor('howItWorks_step2'),
+    howItWorks_step3: tJsonEditor('howItWorks_step3'),
+    howItWorks_step4: tJsonEditor('howItWorks_step4'),
+    // Testimonials section
+    testimonials_title: tJsonEditor('testimonials_title'),
+    testimonial_1_name: tJsonEditor('testimonial_1_name'),
+    testimonial_1_role: tJsonEditor('testimonial_1_role'),
+    testimonial_1_text: tJsonEditor('testimonial_1_text'),
+    testimonial_2_name: tJsonEditor('testimonial_2_name'),
+    testimonial_2_role: tJsonEditor('testimonial_2_role'),
+    testimonial_2_text: tJsonEditor('testimonial_2_text'),
+    testimonial_3_name: tJsonEditor('testimonial_3_name'),
+    testimonial_3_role: tJsonEditor('testimonial_3_role'),
+    testimonial_3_text: tJsonEditor('testimonial_3_text'),
+    // FAQ section
+    faq_title: tJsonEditor('faq_title'),
+    faq_q1: tJsonEditor('faq_q1'),
+    faq_a1: tJsonEditor('faq_a1'),
+    faq_q2: tJsonEditor('faq_q2'),
+    faq_a2: tJsonEditor('faq_a2'),
+    faq_q3: tJsonEditor('faq_q3'),
+    faq_a3: tJsonEditor('faq_a3'),
+    faq_q4: tJsonEditor('faq_q4'),
+    faq_a4: tJsonEditor('faq_a4'),
+    faq_q5: tJsonEditor('faq_q5'),
+    faq_a5: tJsonEditor('faq_a5')
   }
 }
 
