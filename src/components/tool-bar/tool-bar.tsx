@@ -17,6 +17,7 @@ export interface ToolBarProps {
   onCompareClick: () => void;
   onUploadClick: (fileContent: File) => void;
   isAutoPrettifyOn: boolean;
+  isCompareMode?: boolean;
   toolTexts: any;
 }
 
@@ -71,8 +72,10 @@ export const ToolBar: React.FC<ToolBarProps> = ({
   onDownloadClick,
   onUploadClick,
   onCompareClick,
+  isCompareMode = false,
   toolTexts
 }) => {
+  const compareButtonText = isCompareMode ? (toolTexts.close_compare || "Close Compare") : toolTexts.compare;
   const leftItems: ICommandBarItemProps[] = [
     {
       key: "upload",
@@ -119,9 +122,17 @@ export const ToolBar: React.FC<ToolBarProps> = ({
     },
     {
         key: "compare",
-        text: toolTexts.compare,
-        iconProps: { iconName: "DiffSideBySide" },
+        text: compareButtonText,
+        iconProps: { iconName: isCompareMode ? "ClearFormatting" : "DiffSideBySide" },
         onClick: onCompareClick,
+        buttonStyles: isCompareMode
+          ? {
+              root: {
+                background: "#eef6ff",
+                border: "1px solid #93c5fd",
+              },
+            }
+          : undefined,
       },
   ];
 

@@ -78,6 +78,7 @@ export const getJsonEditorPageLanguageText = async () => {
     clear: tJsonEditor('clear'),
     auto_format: tJsonEditor('auto_format'),
     compare: tJsonEditor('compare'),
+    close_compare: tJsonEditor('close_compare'),
     problem: tJsonEditor('problem'),
     h1Text: tJsonEditor('h1Text'),
     pDescription: tJsonEditor('pDescription'),

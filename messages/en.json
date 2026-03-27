@@ -146,6 +146,7 @@
     "clear": "Clear",
     "auto_format": "Auto Format",
     "compare": "Compare",
+    "close_compare": "Close Compare",
     "problem": "Problem",
     "h1Text": "SoraWebui - Works",
     "pDescription": "SoraWebui is an open-source project that simplifies video creation by allowing users to generate videos online with OpenAI's Sora model using text, featuring easy one-click website deployment.",
