@@ -1,105 +1,138 @@
 'use client'
-import {useRouter} from "next/navigation";
+
+import { useEffect, useMemo, useState } from 'react';
+import { FiRepeat } from 'react-icons/fi';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
-import {useState,useEffect,useCallback,useRef,useMemo} from "react";
-import HeadInfo from "~/components/HeadInfo";
-import {useCommonContext} from "~/context/common-context";
-import {useInterval} from "ahooks";
-import Link from "next/link";
-import Script from 'next/script'
-import { languages,getLanguageByLang,getEditorLocale} from "~/config";
-import {Editor,loader,useMonaco} from "@monaco-editor/react";
-import Datepicker from '~/components/time/Datepicker.jsx';
-import Results from '~/components/time/Results.jsx';
-import { Form, Formik, FormikProps } from 'formik';
-import { fromUnixTime, format, getUnixTime } from 'date-fns';
-import { FaClock } from 'react-icons/fa';
-import { FiRepeat } from 'react-icons/fi';
-import styled from 'styled-components';
-import { Toaster } from 'react-hot-toast';
-import Image from 'next/image'
-import Input from '~/components/Input';
-import Button from '~/components/Button';
-import {DatePicker} from "@nextui-org/react";
-import moment,{ Moment }  from 'moment';
-import Picker from 'rc-picker';
-import momentGenerateConfig from "rc-picker/lib/generate/moment";
-import React from 'react';
-import zhCN from 'rc-picker/lib/locale/zh_CN';
-import en_US from 'rc-picker/lib/locale/en_US';
-import "rc-picker/assets/index.css";
+import HeadInfo from '~/components/HeadInfo';
 import { Container } from './styles';
 
+type EpochUnit = 'auto' | 's' | 'ms' | 'us' | 'ns';
 
-interface FormValues {
-  timestamp: string;
-}
+const formatLocal = (date: Date) => {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  })
+    .formatToParts(date)
+    .reduce<Record<string, string>>((acc, part) => {
+      if (part.type !== 'literal') {
+        acc[part.type] = part.value;
+      }
+      return acc;
+    }, {});
+
+  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
+};
+
+const detectUnit = (raw: string): Exclude<EpochUnit, 'auto'> => {
+  const digits = raw.replace('-', '').length;
+  if (digits >= 19) return 'ns';
+  if (digits >= 16) return 'us';
+  if (digits >= 13) return 'ms';
+  return 's';
+};
+
+const toMillis = (value: string, unit: EpochUnit): number | null => {
+  const num = Number(value.trim());
+  if (!Number.isFinite(num)) return null;
+
+  const resolvedUnit = unit === 'auto' ? detectUnit(value.trim()) : unit;
+
+  if (resolvedUnit === 's') return num * 1000;
+  if (resolvedUnit === 'ms') return num;
+  if (resolvedUnit === 'us') return num / 1000;
+  return num / 1_000_000;
+};
+
+const toDateTimeLocalValue = (date: Date) => {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const year = date.getFullYear();
+  const month = pad(date.getMonth() + 1);
+  const day = pad(date.getDate());
+  const hours = pad(date.getHours());
+  const minutes = pad(date.getMinutes());
+  const seconds = pad(date.getSeconds());
+  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+};
 
 const PageComponent = ({
-                         locale = '',
-                         timestampLanguageText,
-                         footerLanguageText,
-                         indexLanguageText
-                       }) => {
-    const editorRef = useRef(null);
-    const [date, setDate] = useState<string>();
-    const [dateTime, setDateTime] = useState({});
-    useEffect(() => {
-        const date = new Date();
-        setDateTime(date);
-    }, [])
-    const initialValues: FormValues = useMemo(
-      () => ({
-        timestamp: String(getUnixTime(new Date())),
-      }),
-      [],
-    );
-    const gotATime = dateTime => {
-        setDateTime(dateTime);
+  locale = '',
+  timestampLanguageText,
+  footerLanguageText,
+  indexLanguageText,
+}) => {
+  const now = new Date();
+  const [timestampInput, setTimestampInput] = useState(() => String(Math.floor(Date.now() / 1000)));
+  const [unit, setUnit] = useState<EpochUnit>('auto');
+  const [dateInput, setDateInput] = useState(() => toDateTimeLocalValue(now));
+
+  const timestampConversion = useMemo(() => {
+    const ms = toMillis(timestampInput, unit);
+    if (ms === null) {
+      return {
+        isValid: false,
+        local: '',
+        utc: '',
+        seconds: '',
+        milliseconds: '',
+        microseconds: '',
+        nanoseconds: '',
+      };
     }
 
-    const handleFormOnSubmit = (values: FormValues): void => {
-      console.log('timestamp:'+values.timestamp)
-      const unit= (document.getElementById("timestamp_unit") as HTMLInputElement).value;
-      if (unit == 'ms') {
-         const parsedDate = fromUnixTime(+values.timestamp/1000);
-         setDate(format(parsedDate, 'yyyy-MM-dd HH:mm:ss'));
-      } else {
-          const parsedDate = fromUnixTime(+values.timestamp);
-          setDate(format(parsedDate, 'yyyy-MM-dd HH:mm:ss'));
-      }
+    const date = new Date(ms);
+    if (Number.isNaN(date.getTime())) {
+      return {
+        isValid: false,
+        local: '',
+        utc: '',
+        seconds: '',
+        milliseconds: '',
+        microseconds: '',
+        nanoseconds: '',
+      };
+    }
+
+    return {
+      isValid: true,
+      local: formatLocal(date),
+      utc: date.toUTCString(),
+      seconds: String(Math.floor(ms / 1000)),
+      milliseconds: String(Math.floor(ms)),
+      microseconds: String(Math.floor(ms * 1000)),
+      nanoseconds: String(Math.floor(ms * 1_000_000)),
     };
-  function handleTimeStampChange(){
-        const unit= (document.getElementById("timestamp_unit") as HTMLInputElement).value;
-        const timestamp= (document.getElementById("timestamp") as HTMLInputElement).value;
-        console.log('timestamp:'+timestamp);
-        console.log('timestamp unit:'+unit);
-        if (unit=='ms') {
-           const parsedDate = fromUnixTime(Number(timestamp)/1000);
-           setDate(format(parsedDate, 'yyyy-MM-dd HH:mm:ss'));
-        } else {
-           const parsedDate = fromUnixTime(Number(timestamp));
-           setDate(format(parsedDate, 'yyyy-MM-dd HH:mm:ss'));
-        }
-   }
-   const defaultValue = moment();
-   const [value, setValue] = React.useState<Moment | null>(defaultValue);
-   const onSelect = (newValue: Moment) => {
-      console.log('Select:', newValue);
+  }, [timestampInput, unit]);
+
+  const dateToTimestamp = useMemo(() => {
+    if (!dateInput) return null;
+    const date = new Date(dateInput);
+    if (Number.isNaN(date.getTime())) return null;
+
+    const ms = date.getTime();
+    return {
+      seconds: String(Math.floor(ms / 1000)),
+      milliseconds: String(ms),
+      microseconds: String(ms * 1000),
+      nanoseconds: String(ms * 1_000_000),
     };
-    const onChange = (newValue: Moment | null, formatString?: string) => {
-      console.log('Change:', newValue, formatString);
-      console.log('Change timestamp:', newValue.toDate().getTime(), formatString);
-      setValue(newValue);
-      setDateTime(newValue.toDate());
-    };
-  const sharedProps = {
-      generateConfig: momentGenerateConfig,
-      value,
-      onSelect,
-      onChange,
-    };
+  }, [dateInput]);
+
+  const [currentEpoch, setCurrentEpoch] = useState(() => Math.floor(Date.now() / 1000));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentEpoch(Math.floor(Date.now() / 1000));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
       <HeadInfo
@@ -107,243 +140,195 @@ const PageComponent = ({
         description={timestampLanguageText.description}
         keywords={timestampLanguageText.keywords}
         locale={locale}
-        page={"/timestamp"}
+        page={'/timestamp'}
       />
-    <Header locale={locale} page={"timestamp"} indexLanguageText={indexLanguageText}/>
-    <Container>
-          <header className="mt-10">
-            <FiRepeat size={40} color="#F97316" />
-            <div>
-              <h1>{timestampLanguageText.h1}</h1>
-              <h2 className="text-xs">{timestampLanguageText.h2_1}</h2>
+      <Header locale={locale} page={'timestamp'} indexLanguageText={indexLanguageText} />
+      <Container>
+        <header className="mt-10">
+          <FiRepeat size={40} color="#F97316" />
+          <div>
+            <h1>{timestampLanguageText.h1}</h1>
+            <h2 className="text-xs">{timestampLanguageText.h2_1}</h2>
+          </div>
+        </header>
+
+        <div className="w-full max-w-3xl px-4 pb-12">
+          <section className="py-6">
+            <div className="mb-3 flex items-baseline justify-between gap-4">
+              <h3 className="text-lg font-semibold tracking-tight">{timestampLanguageText.section_timestamp_to_date}</h3>
+              <div className="text-right text-xs leading-5 opacity-70">
+                <div>
+                  {timestampLanguageText.current_unix_epoch}: <span className="tabular-nums font-semibold">{currentEpoch}</span>
+                </div>
+                <div>{timestampLanguageText.units_hint}</div>
+              </div>
             </div>
-          </header>
-          <Formik initialValues={initialValues} onSubmit={handleFormOnSubmit}>
-            {({
-              handleSubmit,
-              handleChange,
-              handleBlur,
-              values,
-            }: FormikProps<FormValues>) => (
-              <Form onSubmit={handleSubmit}>
-              <div className="flex justify-between ">
-                <Input
-                  icon={FaClock}
-                  name="timestamp"
-                  id="timestamp"
-                  placeholder="Timestamp"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.timestamp}
-                />
-                <select
-                       name="unit"
-                       id="timestamp_unit"
-                       className=" ml-2 border-2 border-orange-300 text-gray-700 sm:text-sm"
-                       onChange={handleTimeStampChange}
-                     >
-                       <option value="s">s</option>
-                       <option value="ms">ms</option>
-                  </select>
-                  <Button type="submit" className="ml-5">
-                    {timestampLanguageText.convert}
-                  </Button>
-               </div>
-                {date && (
-                  <>
-                    <hr />
-                    <div className="mx-auto">
-                        <span>Timestamp date:</span>
-                        <span className="ml-2">{date}</span>
-                    </div>
-                  </>
-                )}
-              </Form>
+
+            <div className="mb-4 flex flex-col gap-3 md:flex-row">
+              <input
+                id="timestamp"
+                name="timestamp"
+                className="w-full rounded border border-orange-300 bg-white px-3 py-2 text-black shadow-sm"
+                placeholder={timestampLanguageText.enter_timestamp_placeholder}
+                value={timestampInput}
+                onChange={(event) => setTimestampInput(event.target.value)}
+              />
+              <select
+                id="timestamp_unit"
+                name="timestamp_unit"
+                className="rounded border border-orange-300 bg-white px-3 py-2 text-black shadow-sm"
+                value={unit}
+                onChange={(event) => setUnit(event.target.value as EpochUnit)}
+              >
+                <option value="auto">{timestampLanguageText.unit_auto}</option>
+                <option value="s">{timestampLanguageText.unit_seconds}</option>
+                <option value="ms">{timestampLanguageText.unit_milliseconds}</option>
+                <option value="us">{timestampLanguageText.unit_microseconds}</option>
+                <option value="ns">{timestampLanguageText.unit_nanoseconds}</option>
+              </select>
+            </div>
+
+            {timestampConversion.isValid ? (
+              <div className="grid gap-x-8 gap-y-2 text-sm md:grid-cols-2">
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_local}</span><span className="tabular-nums">{timestampConversion.local}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_utc}</span><span className="tabular-nums">{timestampConversion.utc}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_seconds}</span><span className="tabular-nums">{timestampConversion.seconds}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_millis}</span><span className="tabular-nums">{timestampConversion.milliseconds}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_micros}</span><span className="tabular-nums">{timestampConversion.microseconds}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_nanos}</span><span className="tabular-nums">{timestampConversion.nanoseconds}</span></div>
+              </div>
+            ) : (
+              <p className="text-sm text-red-500">{timestampLanguageText.invalid_timestamp}</p>
             )}
-          </Formik>
-     </Container>
-     <ScWrapper>
-            <ScInner>
-              <ScMain >
-                <h2 className="mb-5 mx-auto mt-10 font-bold">{timestampLanguageText.h2_2}</h2>
-                <ScSelectWrapper >
-                  <ScAction className="text-center">{timestampLanguageText.pick_date}</ScAction>
-                  <div className="flex justify-between ml-2">
-                  <Picker<Moment>
-                    {...sharedProps}
-                    locale={en_US}
-                    defaultPickerValue={defaultValue.clone()}
-                    showTime={{
-                      showHour:true,
-                      showMinute:true,
-                      showSecond: true,
-                      defaultValue: moment('11:28:39', 'HH:mm:ss'),
-                    }}
-                    disabledTime={date => {
-                      if (date && date.isSame(defaultValue, 'date')) {
-                        return {
-                          disabledHours: () => [1, 3, 5, 7, 9, 11],
-                        };
-                      }
-                      return {};
-                    }}
-                  className="border-2 border-orange-300" />
-                  </div>
-                </ScSelectWrapper>
-                <Results dateTime={dateTime} />
-              </ScMain>
-            </ScInner>
-    </ScWrapper>
-    <Footer
+          </section>
+
+          <div className="border-t border-orange-200/60" />
+
+          <section className="py-6">
+            <div className="mb-3">
+              <h3 className="text-lg font-semibold tracking-tight">{timestampLanguageText.h2_2}</h3>
+              <p className="mt-1 text-sm opacity-80">{timestampLanguageText.pick_date}</p>
+            </div>
+            <input
+              type="datetime-local"
+              className="mb-4 w-full rounded border border-orange-300 bg-white px-3 py-2 text-black shadow-sm"
+              value={dateInput}
+              onChange={(event) => setDateInput(event.target.value)}
+              step={1}
+            />
+
+            {dateToTimestamp ? (
+              <div className="grid gap-x-8 gap-y-2 text-sm md:grid-cols-2">
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_seconds}</span><span className="tabular-nums">{dateToTimestamp.seconds}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_millis}</span><span className="tabular-nums">{dateToTimestamp.milliseconds}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_micros}</span><span className="tabular-nums">{dateToTimestamp.microseconds}</span></div>
+                <div className="flex gap-2"><span className="w-28 shrink-0 font-semibold">{timestampLanguageText.label_nanos}</span><span className="tabular-nums">{dateToTimestamp.nanoseconds}</span></div>
+              </div>
+            ) : (
+              <p className="text-sm text-red-500">{timestampLanguageText.invalid_date}</p>
+            )}
+          </section>
+
+          <div className="border-t border-orange-200/60" />
+
+          <section className="py-6">
+            <h3 className="mb-2 text-lg font-semibold tracking-tight">{timestampLanguageText.what_is_unix_timestamp_title}</h3>
+            <div className="space-y-2 text-sm leading-6 opacity-90">
+              <p>{timestampLanguageText.what_is_unix_timestamp_p1}</p>
+              <p>{timestampLanguageText.what_is_unix_timestamp_p2}</p>
+              <p>{timestampLanguageText.what_is_unix_timestamp_p3}</p>
+            </div>
+          </section>
+
+          <div className="border-t border-orange-200/60" />
+
+          <section className="py-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold tracking-tight">{timestampLanguageText.code_examples_title}</h3>
+              <p className="mt-1 text-sm opacity-90">
+                {timestampLanguageText.code_examples_desc} <code>1800000000</code>.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <div className="mb-1 text-sm font-semibold">JavaScript</div>
+                <pre className="overflow-auto rounded-md bg-black/80 p-3 text-xs text-white">
+{`// now (seconds)
+Math.floor(Date.now() / 1000)
+
+// epoch -> date
+new Date(1800000000 * 1000).toISOString()`}
+                </pre>
+              </div>
+
+              <div>
+                <div className="mb-1 text-sm font-semibold">Python</div>
+                <pre className="overflow-auto rounded-md bg-black/80 p-3 text-xs text-white">
+{`import time
+
+# now (seconds)
+int(time.time())
+
+# epoch -> date (local)
+time.ctime(1800000000)`}
+                </pre>
+              </div>
+
+              <div>
+                <div className="mb-1 text-sm font-semibold">Go</div>
+                <pre className="overflow-auto rounded-md bg-black/80 p-3 text-xs text-white">
+{`package main
+
+import (
+  "fmt"
+  "time"
+)
+
+func main() {
+  fmt.Println(time.Now().Unix())
+  fmt.Println(time.Unix(1800000000, 0).UTC())
+}`}
+                </pre>
+              </div>
+
+              <div>
+                <div className="mb-1 text-sm font-semibold">SQL (PostgreSQL)</div>
+                <pre className="overflow-auto rounded-md bg-black/80 p-3 text-xs text-white">
+{`-- now (seconds)
+SELECT EXTRACT(EPOCH FROM now());
+
+-- epoch -> timestamp
+SELECT TO_TIMESTAMP(1800000000);`}
+                </pre>
+              </div>
+
+              <div>
+                <div className="mb-1 text-sm font-semibold">Unix/Linux shell</div>
+                <pre className="overflow-auto rounded-md bg-black/80 p-3 text-xs text-white">
+{`date +%s
+date -d @1800000000`}
+                </pre>
+              </div>
+
+              <div>
+                <div className="mb-1 text-sm font-semibold">macOS</div>
+                <pre className="overflow-auto rounded-md bg-black/80 p-3 text-xs text-white">
+{`date +%s
+date -j -r 1800000000`}
+                </pre>
+              </div>
+            </div>
+          </section>
+        </div>
+      </Container>
+      <Footer
         locale={locale}
         description={indexLanguageText.description}
         footerText={footerLanguageText}
-    />
+      />
     </>
-  )
+  );
+};
 
-}
-
-const ScWrapper = styled.div`
-  display: flex;
-  position: relative;
-  height: 70vh;
-`;
-
-const ScInner = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-`;
-
-const ScMain = styled.main`
-  width: 640px;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-`;
-
-const ScTitle = styled.h1`
-  font-size: 32px;
-  font-weight: 200;
-  text-align: center;
-  margin-bottom: 8px;
-`;
-
-const ScDescription = styled.p`
-  text-align: center;
-  margin-top: 0;
-`;
-
-const ScAction = styled.p`
-  font-size: 16px;
-  text-align: center;
-  margin: 0;
-`;
-
-const ScSelectWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4px;
-  margin-bottom: 24px;
-`;
-
-const ScCopyright = styled.small`
-  text-align:center;
-  margin-top: 24px;
-  font-size: 14px;
-
-  a {
-    color: var(--color-text);
-    text-decoration: none;
-  }
-`;
-
-const ScSponsor = styled.div`
-  display:flex;
-  justify-content: center;
-  margin-top: 8px;
-  gap: 16px;
-
-  img {
-    cursor: pointer;
-  }
-`;
-
-
-const ScCardContainer = styled.div`
-  display: flex;
-  padding: 16px 16px 0;
-  gap: 16px;
-  width: 100%;
-  justify-content: end;
-  box-sizing: border-box;
-
-@media (max-width: 812px) {
-  flex-direction: column;
-  }
-
-`;
-
-const ScCard = styled.a`
-  background: var(--color-card);
-  color: var(--color-text);
-  border-radius: 12px;
-
-  &:hover {
-    color: var(--color-text);
-    background: var(--color-card-hover);
-  }
-
-  &:visited, &:focused {
-    color: var(--color-text);
-  }
-`;
-
-const ScCardInner = styled.div`
-  display: inline-flex;
-  gap: 16px;
-  align-items: center;
-  padding: 8px;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-`;
-
-const ScImageWrapper = styled.div`
-  position: relative;
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-  border-radius: 8px;
-  overflow: hidden;
-`;
-
-const ScCardTitle = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-`;
-
-const ScCardDescription = styled.div`
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--color-muted);
-`;
-
-const ScCardText = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ScCardInnerWrapper = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
-export default PageComponent
+export default PageComponent;
