@@ -146,6 +146,7 @@
     "clear": "清理",
     "auto_format": "自动格式化",
     "compare": "比较",
+    "close_compare": "关闭比较",
     "problem": "问题",
     "h1Text": "SoraWebui - 作品",
     "pDescription": "SoraWebui 是一个开源项目，通过允许用户使用文本在线生成视频，使用 OpenAI 的 Sora 模型简化视频创建，具有简单的一键网站部署功能。",

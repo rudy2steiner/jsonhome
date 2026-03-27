@@ -1,5 +1,4 @@
 'use client'
-import {useRouter} from "next/navigation";
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import {useState,useEffect,useCallback,useRef} from "react";
@@ -10,7 +9,7 @@ import Link from "next/link";
 import Script from 'next/script'
 import { languages,getLanguageByLang,getEditorLocale} from "~/config";
 import * as monaco from 'monaco-editor';
-import {Editor,loader,useMonaco} from "@monaco-editor/react";
+import {Editor,loader,useMonaco,DiffEditor} from "@monaco-editor/react";
 import { Stack, IStackStyles } from "@fluentui/react";
 import { ErrorMessageBar } from "~/components/error-message-bar";
 import { TitleBar } from "~/components/title-bar";
@@ -37,6 +36,27 @@ const stackStyles: IStackStyles = {
 
 loader.config({ paths: { vs: "/vs" } });
 
+const compareSampleOriginal = `{
+  "service": "orders",
+  "version": 1,
+  "features": {
+    "audit": false,
+    "retries": 1
+  },
+  "regions": ["us-east-1", "eu-west-1"]
+}`;
+
+const compareSampleModified = `{
+  "service": "orders",
+  "version": 2,
+  "features": {
+    "audit": true,
+    "retries": 3,
+    "timeoutMs": 1500
+  },
+  "regions": ["us-east-1", "eu-west-1", "ap-southeast-1"]
+}`;
+
 const PageComponent = ({
                          locale = '',
                          indexLanguageText,
@@ -47,14 +67,21 @@ const PageComponent = ({
                        }) => {
 
   const editorRef = useRef(null);
+  const diffEditorRef = useRef(null);
   const demoEditorRef = useRef(null);
   const editorLocale = getEditorLocale(locale);
   console.log('editor mount locale:'+{locale}+'->'+editorLocale);
   const [isValidJson, setIsValidJson] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
   const [isAutoPrettifyOn, toggleAutoPrettifyOn] = useToggle(false);
+  const [isCompareMode, setIsCompareMode] = useState(false);
+  const [compareOriginal, setCompareOriginal] = useState('');
+  const [compareModified, setCompareModified] = useState('');
   function handleEditorDidMount(editor, monaco) {
       editorRef.current = editor;
+  }
+  function handleDiffEditorDidMount(editor, monaco) {
+      diffEditorRef.current = editor;
   }
   function handleExampleEditorDidMount(editor, monaco) {
     console.log('handleEditorDidMount');
@@ -64,18 +91,35 @@ const PageComponent = ({
     });
   }
   function format() {
-    editorRef.current.trigger('', 'editor.action.formatDocument');
+    if (isCompareMode && diffEditorRef.current) {
+      diffEditorRef.current.getOriginalEditor().trigger('', 'editor.action.formatDocument');
+      diffEditorRef.current.getModifiedEditor().trigger('', 'editor.action.formatDocument');
+      return;
+    }
+    editorRef.current?.trigger('', 'editor.action.formatDocument');
+  }
+  function normalizeJsonText(value: string) {
+    const lines = value.split("\n");
+    const trimmedLines = lines.map((line) => line.trim());
+    const filteredLines = trimmedLines.filter((line) => line !== "");
+    return filteredLines.join("");
   }
   function minify() {
+      if (isCompareMode && diffEditorRef.current) {
+        const originalEditor = diffEditorRef.current.getOriginalEditor();
+        const modifiedEditor = diffEditorRef.current.getModifiedEditor();
+        const originalText = originalEditor.getValue() || "";
+        const modifiedText = modifiedEditor.getValue() || "";
+        originalEditor.getModel().setValue(normalizeJsonText(originalText));
+        modifiedEditor.getModel().setValue(normalizeJsonText(modifiedText));
+        return;
+      }
       if (editorRef.current.getValue() == undefined || editorRef.current.getValue().length==0) {
            console.log("empty")
            return
         }
         console.log(editorRef.current.getValue())
-        const lines = editorRef.current.getValue().split("\n");
-        const trimmedLines = lines.map((line) => line.trim());
-        const filteredLines = trimmedLines.filter((line) => line !== "");
-        const finalJson = filteredLines.join("");
+        const finalJson = normalizeJsonText(editorRef.current.getValue());
         editorRef.current.getModel().setValue(finalJson);
   }
   const handleEditorValidation= useCallback((markers) => {
@@ -92,14 +136,33 @@ const PageComponent = ({
       demoEditorRef.current.trigger('', 'editor.action.formatDocument');
     }, []);
     const handleDownloadClick = () => {
-    const value = editorRef.current?.getValue();
+    const value = isCompareMode && diffEditorRef.current
+      ? diffEditorRef.current.getModifiedEditor().getValue()
+      : editorRef.current?.getValue();
     value && downloadJsonFile(value);
     };
    const handleCompareClick = () => {
-       //locale
-       let hrefValue = `/${locale}/json-compare`;
-       const  url= '/'+`{locale}`+'/json-compare';
-       window.open(hrefValue, '_blank');
+       if (isCompareMode && diffEditorRef.current) {
+         const latestOriginal = diffEditorRef.current.getOriginalEditor().getValue() || "";
+         const latestModified = diffEditorRef.current.getModifiedEditor().getValue() || "";
+         setCompareOriginal(latestOriginal);
+         setCompareModified(latestModified);
+       }
+       if (!isCompareMode) {
+         const hasExistingCompareContent =
+           compareOriginal.trim().length > 0 || compareModified.trim().length > 0;
+         if (!hasExistingCompareContent) {
+           const currentValue = editorRef.current?.getValue() || "";
+           if (currentValue.trim().length === 0) {
+             setCompareOriginal(compareSampleOriginal);
+             setCompareModified(compareSampleModified);
+           } else {
+             setCompareOriginal(currentValue);
+             setCompareModified(currentValue);
+           }
+         }
+       }
+       setIsCompareMode((prev) => !prev);
    };
    const handleEditorChange = useCallback(
        (value: string | undefined) => {
@@ -114,6 +177,15 @@ const PageComponent = ({
       const fileReader = new FileReader();
       fileReader.onload = () => {
         const result = fileReader.result as string;
+        if (isCompareMode) {
+          if (diffEditorRef.current) {
+            diffEditorRef.current.getModifiedEditor().getModel().setValue(result || "");
+            diffEditorRef.current.getModifiedEditor().getAction("editor.action.formatDocument")?.run();
+          } else {
+            setCompareModified(result || "");
+          }
+          return;
+        }
         handleEditorUpdateValue(result);
       };
       fileReader.readAsText(file);
@@ -124,7 +196,21 @@ const PageComponent = ({
       editor.setValue(value || "");
       value && editor?.getAction("editor.action.formatDocument")?.run();
     }, []);
-  const handleClearClick = () => editorRef.current?.setValue("");
+  const handleClearClick = () => {
+    if (isCompareMode) {
+      if (diffEditorRef.current) {
+        diffEditorRef.current.getOriginalEditor().getModel().setValue("");
+        diffEditorRef.current.getModifiedEditor().getModel().setValue("");
+      }
+      setCompareOriginal("");
+      setCompareModified("");
+      return;
+    }
+    editorRef.current?.setValue("");
+  };
+  const diffEditorOptions = {
+    originalEditable: true,
+  };
 
   return (
     <>
@@ -142,6 +228,7 @@ const PageComponent = ({
             <Stack.Item>
                <ToolBar
                  isAutoPrettifyOn={isAutoPrettifyOn}
+                 isCompareMode={isCompareMode}
                  onAutoPrettifyChange={toggleAutoPrettifyOn}
                  onClearClick={handleClearClick}
                  onDownloadClick={handleDownloadClick}
@@ -159,14 +246,25 @@ const PageComponent = ({
                             height: `calc(100% - 20vh)`,
                           }}
                         >
-                 <Editor
-                              height="calc(60vh)"
-                              language="json"
-                              defaultValue=''
-                              onMount={handleEditorDidMount}
-                              onChange={handleEditorChange}
-                              onValidate={handleEditorValidation}
-                            />
+                 {isCompareMode ? (
+                   <DiffEditor
+                     height="calc(60vh)"
+                     language="json"
+                     original={compareOriginal}
+                     modified={compareModified}
+                     options={diffEditorOptions}
+                     onMount={handleDiffEditorDidMount}
+                   />
+                 ) : (
+                   <Editor
+                     height="calc(60vh)"
+                     language="json"
+                     defaultValue=''
+                     onMount={handleEditorDidMount}
+                     onChange={handleEditorChange}
+                     onValidate={handleEditorValidation}
+                   />
+                 )}
                  </Stack.Item>
                  <Stack.Item
                    style={{

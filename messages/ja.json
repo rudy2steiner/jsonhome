@@ -106,6 +106,7 @@
     "clear": "クリア",
     "auto_format": "自動フォーマット",
     "compare": "比較",
+    "close_compare": "比較を閉じる",
     "problem": "問題",
     "h1Text": "SoraWebui - 作品",
     "pDescription": "SoraWebuiは、テキストを使用してOpenAIのSoraモデルでオンラインでビデオを生成できるオープンソースプロジェクトで、簡単なワンクリックのウェブサイト展開を特徴としています。",
