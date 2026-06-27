@@ -1,0 +1,5 @@
+# Local Cloudflare Worker dev secrets (used by `wrangler dev` / `opennextjs-cloudflare preview`).
+# Copy this file to `.dev.vars` and fill in real values. Do NOT commit `.dev.vars`.
+OPENAI_API_KEY=sk-XXXXXX
+OPENAI_API_BASE_URL=https://fake-sora-api.sorawebui.com
+OPENAI_API_MODEL=sora-1.0-turbo

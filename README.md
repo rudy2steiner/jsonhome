@@ -30,8 +30,27 @@ English | [简体中文](https://github.com/rudy2steiner/SoraWebui/blob/main/REA
 
 ## Quick Started
 
-### Deploy on Vercel
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSoraWebui%2FSoraWebui&project-name=SoraWebui&repository-name=SoraWebui&external-id=https%3A%2F%2Fgithub.com%2FSoraWebui%2FSoraWebui%2Ftree%2Fmain)
+### Deploy on Cloudflare Workers
+
+This app runs on Cloudflare Workers via the [OpenNext](https://opennext.js.org/cloudflare) Cloudflare adapter.
+
+```bash
+# 1. Authenticate wrangler (one-time)
+npx wrangler login
+
+# 2. Set the OpenAI API key as a secret (other vars live in wrangler.jsonc)
+npx wrangler secret put OPENAI_API_KEY
+
+# 3. Build + deploy
+npm run deploy
+```
+
+Other useful scripts:
+
+- `npm run preview` — build and run the Worker locally with `wrangler dev`.
+- `npm run dev` — run the regular Next.js dev server.
+
+Local Worker dev reads secrets from a `.dev.vars` file. Copy `.dev.vars.example` to `.dev.vars` and fill in values. Public/non-secret vars (`OPENAI_API_MODEL`, `OPENAI_API_BASE_URL`) are configured in `wrangler.jsonc`.
 
 ### 1. Clone project
 

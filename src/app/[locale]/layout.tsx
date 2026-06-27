@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import {Inter} from 'next/font/google';
 import {notFound} from 'next/navigation';
-import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {locales} from '~/config';
 import { CommonProvider } from '~/context/common-context';
@@ -11,7 +11,7 @@ const inter = Inter({subsets: ['latin']});
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -20,14 +20,15 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
                                              children,
-                                             params: {locale}
+                                             params
                                            }: Props) {
+  const {locale} = await params;
 
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
 
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
 
   return (

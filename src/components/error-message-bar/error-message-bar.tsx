@@ -46,7 +46,7 @@ const onRenderDetailsHeader: IRenderFunction<IDetailsHeaderProps> = (props, defa
   );
 };
 
-export const ErrorMessageBar: React.FC<ErrorMessageBarProps> = ({ errors, toolTexts }): JSX.Element => {
+export const ErrorMessageBar: React.FC<ErrorMessageBarProps> = ({ errors, toolTexts }): React.JSX.Element => {
   const items = errors.map((error) => ({
     key: `error-${uuid()}`,
     problems: error,

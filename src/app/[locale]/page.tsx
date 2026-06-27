@@ -1,11 +1,12 @@
 import PageComponent from "./PageComponent";
-import {unstable_setRequestLocale} from 'next-intl/server';
+import {setRequestLocale} from 'next-intl/server';
 import {randomVideo} from "~/data/openaiVideo";
 import {getIndexLanguageText,getFooterLanguageText,getJsonEditorPageLanguageText, getQuestionLanguageText} from "~/configs/languageText";
 
-export default async function IndexPage({params: {locale = ''}}) {
+export default async function IndexPage({params}: {params: Promise<{locale: string}>}) {
+  const {locale = ''} = await params;
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const indexLanguageText = await getIndexLanguageText();
   const footerLanguageText = await getFooterLanguageText();
   const questionText = await getQuestionLanguageText();

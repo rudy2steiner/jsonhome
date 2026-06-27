@@ -1,11 +1,12 @@
-import {unstable_setRequestLocale} from 'next-intl/server';
+import {setRequestLocale} from 'next-intl/server';
 
 import PageComponent from './PageComponent';
 import {getIndexLanguageText,getFooterLanguageText, getTermsOfServiceLanguageText} from "~/configs/languageText";
 
-export default async function PageContent({params: {locale = ''}}) {
+export default async function PageContent({params}: {params: Promise<{locale: string}>}) {
+  const {locale = ''} = await params;
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const indexLanguageText = await getIndexLanguageText();
     const footerLanguageText = await getFooterLanguageText();
 
